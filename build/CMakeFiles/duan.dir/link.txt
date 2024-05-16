@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -rdynamic -O3 -g -std=c++11 -Wall -Wno-deprecated -Werror -Wno-unused-function -shared -Wl,-soname,libduan.so -o /home/wang/Coroutine/lib/libduan.so CMakeFiles/duan.dir/duan_src/log.cc.o CMakeFiles/duan.dir/duan_src/util.cc.o 
