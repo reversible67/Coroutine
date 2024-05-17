@@ -14,6 +14,9 @@ by 六七
 #include <sstream>
 #include <fstream>
 #include <vector>
+#include <map>
+
+#include "singleton.h"
 /*
 日志操作 一般使用宏来定义 会非常方便
 */
@@ -29,6 +32,18 @@ by 六七
 #define DUAN_LOG_WARN(logger) DUAN_LOG_LEVEL(logger, duan::LogLevel::WARN)
 #define DUAN_LOG_ERROR(logger) DUAN_LOG_LEVEL(logger, duan::LogLevel::ERROR)
 #define DUAN_LOG_FATAL(logger) DUAN_LOG_LEVEL(logger, duan::LogLevel::FATAL)
+
+#define DUAN_LOG_FMT_LEVEL(logger, level, fmt, ...) \
+    if(logger->getLevel() <= level) \
+        duan::LogEventWrap(duan::LogEvent::ptr(new duan::LogEvent(logger, level, \
+                        __FILE__, __LINE__, 0, duan::GetThreadId(), \
+                duan::GetFiberId(), time(0)))).getEvent()->format(fmt, __VA_ARGS__)
+
+#define DUAN_LOG_FMT_DEBUG(logger, fmt, ...) DUAN_LOG_FMT_LEVEL(logger, duan::LogLevel::DEBUG, fmt, __VA_ARGS__)
+#define DUAN_LOG_FMT_INFO(logger, fmt, ...) DUAN_LOG_FMT_LEVEL(logger, duan::LogLevel::INFO, fmt, __VA_ARGS__)
+#define DUAN_LOG_FMT_WARN(logger, fmt, ...) DUAN_LOG_FMT_LEVEL(logger, duan::LogLevel::WARN, fmt, __VA_ARGS__)
+#define DUAN_LOG_FMT_ERROR(logger, fmt, ...) DUAN_LOG_FMT_LEVEL(logger, duan::LogLevel::ERROR, fmt, __VA_ARGS__)
+#define DUAN_LOG_FMT_FATAL(logger, fmt, ...) DUAN_LOG_FMT_LEVEL(logger, duan::LogLevel::FATAL, fmt, __VA_ARGS__)
 
 namespace duan{
 
@@ -67,6 +82,8 @@ public:
     std::shared_ptr<Logger> getLogger() const { return m_logger;}
     LogLevel::Level getLevel() const { return m_level;}
     std::stringstream& getSS() { return m_ss;}
+    void format(const char* fmt, ...);
+    void format(const char* fmt, va_list al);
 private:
     // C++11开始支持 可以直接对成员变量初始化
     const char* m_file = nullptr;   // 文件名
@@ -87,7 +104,9 @@ public:
     ~LogEventWrap();
 
     std::stringstream& getSS();
+    LogEvent::ptr getEvent() const { return m_event;}
 private:
+    // 日志事件
     LogEvent::ptr m_event;
 };
 
@@ -125,6 +144,9 @@ public:
 
     void setFormatter(LogFormatter::ptr val) { m_formatter = val;}
     LogFormatter::ptr getFormatter() const { return m_formatter;}
+
+    LogLevel::Level getLevel() const { return m_level;}
+    void setLevel(LogLevel::Level val) { m_level = val;} 
 protected:
     LogLevel::Level m_level = LogLevel::DEBUG;
     LogFormatter::ptr m_formatter;                                            // 基类有可能会用到这个变量
@@ -176,6 +198,20 @@ private:
     std::string m_filename;
     std::ofstream m_filestream;
 };
+
+// 负责管理所有的logger  默认是m_root
+class LoggerManager{
+public:
+    LoggerManager();
+    Logger::ptr getLogger(const std::string& name);
+
+    void init();
+private:
+    std::map<std::string, Logger::ptr> m_loggers;
+    Logger::ptr m_root;
+};
+
+typedef duan::Singleton<LoggerManager> LoggerMgr;
 
 }  // end of namespace duan
 

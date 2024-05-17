@@ -4,6 +4,7 @@
 CMakeFiles/duan.dir/duan_src/log.cc.o
  /home/wang/Coroutine/duan_src/log.cc
  /home/wang/Coroutine/duan_src/log.h
+ /home/wang/Coroutine/duan_src/singleton.h
  /usr/include/_G_config.h
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h

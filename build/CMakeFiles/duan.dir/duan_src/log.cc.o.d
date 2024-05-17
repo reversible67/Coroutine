@@ -120,4 +120,5 @@ CMakeFiles/duan.dir/duan_src/log.cc.o: \
  /usr/include/c++/4.8.2/bits/vector.tcc /usr/include/c++/4.8.2/map \
  /usr/include/c++/4.8.2/bits/stl_tree.h \
  /usr/include/c++/4.8.2/bits/stl_map.h \
- /usr/include/c++/4.8.2/bits/stl_multimap.h /usr/include/string.h
+ /usr/include/c++/4.8.2/bits/stl_multimap.h \
+ /home/wang/Coroutine/duan_src/singleton.h /usr/include/string.h

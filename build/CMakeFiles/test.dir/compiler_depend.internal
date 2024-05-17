@@ -4,6 +4,7 @@
 CMakeFiles/test.dir/tests/test.cc.o
  /home/wang/Coroutine/tests/test.cc
  /home/wang/Coroutine/duan_src/log.h
+ /home/wang/Coroutine/duan_src/singleton.h
  /home/wang/Coroutine/duan_src/util.h
  /usr/include/_G_config.h
  /usr/include/alloca.h
@@ -86,10 +87,13 @@ CMakeFiles/test.dir/tests/test.cc.o
  /usr/include/c++/4.8.2/bits/stl_iterator_base_funcs.h
  /usr/include/c++/4.8.2/bits/stl_iterator_base_types.h
  /usr/include/c++/4.8.2/bits/stl_list.h
+ /usr/include/c++/4.8.2/bits/stl_map.h
+ /usr/include/c++/4.8.2/bits/stl_multimap.h
  /usr/include/c++/4.8.2/bits/stl_pair.h
  /usr/include/c++/4.8.2/bits/stl_raw_storage_iter.h
  /usr/include/c++/4.8.2/bits/stl_relops.h
  /usr/include/c++/4.8.2/bits/stl_tempbuf.h
+ /usr/include/c++/4.8.2/bits/stl_tree.h
  /usr/include/c++/4.8.2/bits/stl_uninitialized.h
  /usr/include/c++/4.8.2/bits/stl_vector.h
  /usr/include/c++/4.8.2/bits/streambuf.tcc
@@ -126,6 +130,7 @@ CMakeFiles/test.dir/tests/test.cc.o
  /usr/include/c++/4.8.2/istream
  /usr/include/c++/4.8.2/limits
  /usr/include/c++/4.8.2/list
+ /usr/include/c++/4.8.2/map
  /usr/include/c++/4.8.2/memory
  /usr/include/c++/4.8.2/new
  /usr/include/c++/4.8.2/ostream

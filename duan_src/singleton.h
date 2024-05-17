@@ -8,7 +8,7 @@ by 六七
 
 #include <memory>  // 智能指针头文件
 
-namespace sylar{
+namespace duan{
 
 namespace{
 

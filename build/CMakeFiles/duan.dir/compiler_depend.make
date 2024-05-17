@@ -3,6 +3,7 @@
 
 CMakeFiles/duan.dir/duan_src/log.cc.o: /home/wang/Coroutine/duan_src/log.cc \
   /home/wang/Coroutine/duan_src/log.h \
+  /home/wang/Coroutine/duan_src/singleton.h \
   /usr/include/_G_config.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
@@ -240,8 +241,6 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/lib/gcc/x86_64-redhat-linux/4.8.5/include/stdarg.h:
 
-/usr/include/c++/4.8.2/bits/stl_map.h:
-
 /usr/include/c++/4.8.2/bits/exception_ptr.h:
 
 /usr/include/c++/4.8.2/ostream:
@@ -300,6 +299,8 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/include/c++/4.8.2/bits/ostream.tcc:
 
+/home/wang/Coroutine/duan_src/singleton.h:
+
 /usr/include/c++/4.8.2/bits/cpp_type_traits.h:
 
 /usr/include/c++/4.8.2/bits/stl_function.h:
@@ -311,6 +312,16 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 /usr/include/c++/4.8.2/ext/type_traits.h:
 
 /usr/include/c++/4.8.2/bits/sstream.tcc:
+
+/usr/include/c++/4.8.2/bits/ios_base.h:
+
+/usr/include/c++/4.8.2/bits/list.tcc:
+
+/usr/include/asm/unistd.h:
+
+/usr/include/asm-generic/errno.h:
+
+/usr/include/bits/locale.h:
 
 /usr/include/bits/errno.h:
 
@@ -325,12 +336,6 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 /usr/include/bits/select.h:
 
 /usr/include/c++/4.8.2/stdexcept:
-
-/usr/include/asm/unistd.h:
-
-/usr/include/asm-generic/errno.h:
-
-/usr/include/bits/locale.h:
 
 /usr/include/c++/4.8.2/bits/basic_string.tcc:
 
@@ -356,10 +361,6 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /home/wang/Coroutine/duan_src/log.cc:
 
-/usr/include/_G_config.h:
-
-/usr/include/c++/4.8.2/memory:
-
 /usr/include/c++/4.8.2/bits/concept_check.h:
 
 /usr/include/c++/4.8.2/bits/stl_uninitialized.h:
@@ -384,13 +385,17 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/include/c++/4.8.2/bits/functexcept.h:
 
+/usr/include/_G_config.h:
+
+/usr/include/c++/4.8.2/memory:
+
 /usr/include/bits/sys_errlist.h:
 
 /usr/include/bits/types.h:
 
-/usr/include/c++/4.8.2/bits/ios_base.h:
+/usr/include/xlocale.h:
 
-/usr/include/c++/4.8.2/bits/list.tcc:
+/usr/include/c++/4.8.2/backward/binders.h:
 
 /usr/include/bits/typesizes.h:
 
@@ -435,6 +440,8 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 /usr/include/bits/timex.h:
 
 /usr/include/c++/4.8.2/bits/alloc_traits.h:
+
+/usr/include/c++/4.8.2/bits/stl_map.h:
 
 /usr/include/c++/4.8.2/bits/stl_iterator_base_types.h:
 
@@ -577,7 +584,3 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 /usr/include/sys/select.h:
 
 /usr/include/time.h:
-
-/usr/include/c++/4.8.2/backward/binders.h:
-
-/usr/include/xlocale.h:

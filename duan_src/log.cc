@@ -5,10 +5,10 @@ by 六七
 */
 
 #include "log.h"
-#include <map>
 #include <functional>
 #include <time.h>
 #include <string.h>
+#include <stdarg.h>
 
 namespace duan{
 
@@ -38,6 +38,22 @@ LogEventWrap::LogEventWrap(LogEvent::ptr e)
 // 在LogEventWrap对象析构时，将日志输出
 LogEventWrap::~LogEventWrap(){
     m_event->getLogger()->log(m_event->getLevel(), m_event);
+}
+
+void LogEvent::format(const char* fmt, ...){
+    va_list al;                                                 // VA_LIST 是在C语言中解决变参问题的一组宏   接受可变参数
+    va_start(al, fmt);
+    format(fmt, al);
+    va_end(al);
+}
+
+void LogEvent::format(const char* fmt, va_list al){
+    char* buf = nullptr;
+    int len = vasprintf(&buf, fmt, al);                        // vasprintf 是一个 C 库函数，它可以通过可变参数创建一个格式化的字符串，并将其存储在动态分配的内存中
+    if(len != -1){
+        m_ss << std::string(buf, len);
+        free(buf);
+    }
 }
 
 std::stringstream& LogEventWrap::getSS(){
@@ -173,7 +189,7 @@ LogEvent::LogEvent(std::shared_ptr<Logger> logger, LogLevel::Level level, const 
 
 Logger::Logger(const std::string& name)
     : m_name(name)
-    , m_level(LogLevel::DEBUG){
+    , m_level(LogLevel::INFO){
     m_formatter.reset(new LogFormatter("%d{%Y-%m-%d %H:%M:%S}%T%t%T%F%T[%p]%T[%c]%T%f:%l%T%m%n"));
 }
 
@@ -224,7 +240,7 @@ void Logger::fatal(LogEvent::ptr event){
 
 FileLogAppender::FileLogAppender(const std::string& filename)
     : m_filename(filename){ 
-
+    reopen();
 }
 
 void StdoutLogAppender::log(Logger::ptr logger, LogLevel::Level level, LogEvent::ptr event){
@@ -366,6 +382,16 @@ void LogFormatter::init(){
         }
         // std::cout << "(" << std::get<0>(i) << ") - (" << std::get<1>(i) << ") - (" << std::get<2>(i) << ")" << std::endl;
     }
+}
+
+LoggerManager::LoggerManager(){
+    m_root.reset(new Logger);
+
+    m_root->addAppender(LogAppender::ptr(new StdoutLogAppender));
+}
+Logger::ptr LoggerManager::getLogger(const std::string& name){
+    auto it = m_loggers.find(name);
+    return it == m_loggers.end() ? m_root : it->second;
 }
 
 } // end of namespace

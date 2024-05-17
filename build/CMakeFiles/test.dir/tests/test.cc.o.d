@@ -121,7 +121,11 @@ CMakeFiles/test.dir/tests/test.cc.o: /home/wang/Coroutine/tests/test.cc \
  /usr/include/c++/4.8.2/bits/fstream.tcc /usr/include/c++/4.8.2/vector \
  /usr/include/c++/4.8.2/bits/stl_vector.h \
  /usr/include/c++/4.8.2/bits/stl_bvector.h \
- /usr/include/c++/4.8.2/bits/vector.tcc \
+ /usr/include/c++/4.8.2/bits/vector.tcc /usr/include/c++/4.8.2/map \
+ /usr/include/c++/4.8.2/bits/stl_tree.h \
+ /usr/include/c++/4.8.2/bits/stl_map.h \
+ /usr/include/c++/4.8.2/bits/stl_multimap.h \
+ /home/wang/Coroutine/tests/../duan_src/singleton.h \
  /home/wang/Coroutine/tests/../duan_src/util.h /usr/include/sys/syscall.h \
  /usr/include/asm/unistd.h /usr/include/asm/unistd_64.h \
  /usr/include/bits/syscall.h /usr/include/unistd.h \

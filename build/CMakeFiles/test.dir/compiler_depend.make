@@ -3,6 +3,7 @@
 
 CMakeFiles/test.dir/tests/test.cc.o: /home/wang/Coroutine/tests/test.cc \
   /home/wang/Coroutine/duan_src/log.h \
+  /home/wang/Coroutine/duan_src/singleton.h \
   /home/wang/Coroutine/duan_src/util.h \
   /usr/include/_G_config.h \
   /usr/include/alloca.h \
@@ -85,10 +86,13 @@ CMakeFiles/test.dir/tests/test.cc.o: /home/wang/Coroutine/tests/test.cc \
   /usr/include/c++/4.8.2/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/4.8.2/bits/stl_iterator_base_types.h \
   /usr/include/c++/4.8.2/bits/stl_list.h \
+  /usr/include/c++/4.8.2/bits/stl_map.h \
+  /usr/include/c++/4.8.2/bits/stl_multimap.h \
   /usr/include/c++/4.8.2/bits/stl_pair.h \
   /usr/include/c++/4.8.2/bits/stl_raw_storage_iter.h \
   /usr/include/c++/4.8.2/bits/stl_relops.h \
   /usr/include/c++/4.8.2/bits/stl_tempbuf.h \
+  /usr/include/c++/4.8.2/bits/stl_tree.h \
   /usr/include/c++/4.8.2/bits/stl_uninitialized.h \
   /usr/include/c++/4.8.2/bits/stl_vector.h \
   /usr/include/c++/4.8.2/bits/streambuf.tcc \
@@ -125,6 +129,7 @@ CMakeFiles/test.dir/tests/test.cc.o: /home/wang/Coroutine/tests/test.cc \
   /usr/include/c++/4.8.2/istream \
   /usr/include/c++/4.8.2/limits \
   /usr/include/c++/4.8.2/list \
+  /usr/include/c++/4.8.2/map \
   /usr/include/c++/4.8.2/memory \
   /usr/include/c++/4.8.2/new \
   /usr/include/c++/4.8.2/ostream \
@@ -204,6 +209,14 @@ CMakeFiles/test.dir/tests/test.cc.o: /home/wang/Coroutine/tests/test.cc \
 
 /usr/include/sys/cdefs.h:
 
+/usr/include/stdlib.h:
+
+/usr/include/stdint.h:
+
+/usr/include/sys/select.h:
+
+/usr/include/stdc-predef.h:
+
 /usr/include/bits/setjmp.h:
 
 /usr/include/c++/4.8.2/cstdint:
@@ -226,21 +239,19 @@ CMakeFiles/test.dir/tests/test.cc.o: /home/wang/Coroutine/tests/test.cc \
 
 /usr/include/c++/4.8.2/bits/istream.tcc:
 
-/usr/include/stdint.h:
-
 /usr/include/c++/4.8.2/bits/hash_bytes.h:
 
 /usr/include/bits/stdlib-float.h:
 
 /usr/include/c++/4.8.2/bits/functional_hash.h:
 
-/usr/include/c++/4.8.2/ratio:
-
 /usr/include/c++/4.8.2/bits/cxxabi_forced.h:
 
 /usr/include/c++/4.8.2/bits/codecvt.h:
 
 /usr/include/c++/4.8.2/bits/ostream.tcc:
+
+/home/wang/Coroutine/duan_src/singleton.h:
 
 /usr/include/c++/4.8.2/bits/cpp_type_traits.h:
 
@@ -268,15 +279,13 @@ CMakeFiles/test.dir/tests/test.cc.o: /home/wang/Coroutine/tests/test.cc \
 
 /usr/include/bits/types.h:
 
-/usr/include/bits/errno.h:
-
-/usr/include/bits/select.h:
-
-/usr/include/c++/4.8.2/stdexcept:
+/usr/include/bits/environments.h:
 
 /usr/include/c++/4.8.2/bits/basic_string.tcc:
 
 /usr/include/bits/endian.h:
+
+/usr/include/c++/4.8.2/bits/stl_tree.h:
 
 /usr/include/c++/4.8.2/bits/locale_facets.tcc:
 
@@ -285,8 +294,6 @@ CMakeFiles/test.dir/tests/test.cc.o: /home/wang/Coroutine/tests/test.cc \
 /usr/include/asm/errno.h:
 
 /usr/include/c++/4.8.2/string:
-
-/usr/include/c++/4.8.2/bits/functexcept.h:
 
 /usr/include/c++/4.8.2/bits/basic_ios.h:
 
@@ -298,15 +305,9 @@ CMakeFiles/test.dir/tests/test.cc.o: /home/wang/Coroutine/tests/test.cc \
 
 /usr/include/c++/4.8.2/clocale:
 
-/home/wang/Coroutine/duan_src/util.h:
+/usr/include/bits/wordsize.h:
 
-/usr/include/pthread.h:
-
-/usr/include/bits/confname.h:
-
-/usr/include/_G_config.h:
-
-/usr/include/c++/4.8.2/memory:
+/usr/include/c++/4.8.2/bits/char_traits.h:
 
 /usr/include/c++/4.8.2/bits/concept_check.h:
 
@@ -318,29 +319,43 @@ CMakeFiles/test.dir/tests/test.cc.o: /home/wang/Coroutine/tests/test.cc \
 
 /usr/include/bits/byteswap.h:
 
-/home/wang/Coroutine/tests/test.cc:
-
 /usr/include/c++/4.8.2/bits/ptr_traits.h:
 
 /usr/include/c++/4.8.2/bits/vector.tcc:
 
-/usr/include/c++/4.8.2/bits/range_access.h:
+/usr/include/endian.h:
+
+/usr/include/c++/4.8.2/bits/functexcept.h:
+
+/home/wang/Coroutine/tests/test.cc:
+
+/home/wang/Coroutine/duan_src/util.h:
+
+/usr/include/pthread.h:
 
 /usr/include/asm-generic/errno-base.h:
 
-/usr/include/endian.h:
+/usr/include/c++/4.8.2/bits/range_access.h:
 
-/usr/include/alloca.h:
+/usr/include/bits/confname.h:
+
+/usr/include/_G_config.h:
+
+/usr/include/c++/4.8.2/memory:
+
+/usr/include/bits/errno.h:
+
+/usr/include/c++/4.8.2/bits/stl_multimap.h:
+
+/usr/include/bits/select.h:
+
+/usr/include/c++/4.8.2/stdexcept:
 
 /usr/include/bits/byteswap-16.h:
 
 /usr/include/bits/wchar.h:
 
-/usr/include/bits/environments.h:
-
-/usr/include/c++/4.8.2/bits/char_traits.h:
-
-/usr/include/bits/wordsize.h:
+/usr/include/alloca.h:
 
 /usr/include/bits/stdio.h:
 
@@ -360,14 +375,6 @@ CMakeFiles/test.dir/tests/test.cc.o: /home/wang/Coroutine/tests/test.cc \
 
 /usr/include/asm/unistd.h:
 
-/usr/include/bits/sched.h:
-
-/usr/include/c++/4.8.2/bits/stl_bvector.h:
-
-/usr/include/c++/4.8.2/istream:
-
-/usr/include/c++/4.8.2/x86_64-redhat-linux/bits/cpu_defines.h:
-
 /usr/include/c++/4.8.2/bits/locale_classes.h:
 
 /usr/include/c++/4.8.2/bits/basic_string.h:
@@ -381,6 +388,14 @@ CMakeFiles/test.dir/tests/test.cc.o: /home/wang/Coroutine/tests/test.cc \
 /home/wang/Coroutine/duan_src/log.h:
 
 /usr/include/c++/4.8.2/streambuf:
+
+/usr/include/bits/sched.h:
+
+/usr/include/c++/4.8.2/bits/stl_bvector.h:
+
+/usr/include/c++/4.8.2/istream:
+
+/usr/include/c++/4.8.2/x86_64-redhat-linux/bits/cpu_defines.h:
 
 /usr/include/c++/4.8.2/bits/stl_construct.h:
 
@@ -402,6 +417,10 @@ CMakeFiles/test.dir/tests/test.cc.o: /home/wang/Coroutine/tests/test.cc \
 
 /usr/include/c++/4.8.2/fstream:
 
+/usr/include/c++/4.8.2/ratio:
+
+/usr/include/c++/4.8.2/bits/stl_map.h:
+
 /usr/include/c++/4.8.2/bits/stl_iterator_base_types.h:
 
 /usr/include/c++/4.8.2/bits/stl_pair.h:
@@ -409,6 +428,10 @@ CMakeFiles/test.dir/tests/test.cc.o: /home/wang/Coroutine/tests/test.cc \
 /usr/include/c++/4.8.2/bits/shared_ptr.h:
 
 /usr/include/c++/4.8.2/debug/debug.h:
+
+/usr/include/stdio.h:
+
+/usr/include/c++/4.8.2/bits/stl_relops.h:
 
 /usr/include/c++/4.8.2/bits/stl_tempbuf.h:
 
@@ -480,6 +503,10 @@ CMakeFiles/test.dir/tests/test.cc.o: /home/wang/Coroutine/tests/test.cc \
 
 /usr/include/c++/4.8.2/limits:
 
+/usr/include/c++/4.8.2/map:
+
+/usr/include/c++/4.8.2/vector:
+
 /usr/include/c++/4.8.2/new:
 
 /usr/include/c++/4.8.2/sstream:
@@ -508,8 +535,6 @@ CMakeFiles/test.dir/tests/test.cc.o: /home/wang/Coroutine/tests/test.cc \
 
 /usr/include/locale.h:
 
-/usr/include/c++/4.8.2/vector:
-
 /usr/include/c++/4.8.2/cstdlib:
 
 /usr/include/c++/4.8.2/x86_64-redhat-linux/bits/c++allocator.h:
@@ -518,15 +543,7 @@ CMakeFiles/test.dir/tests/test.cc.o: /home/wang/Coroutine/tests/test.cc \
 
 /usr/include/c++/4.8.2/x86_64-redhat-linux/bits/c++io.h:
 
-/usr/include/c++/4.8.2/bits/stl_relops.h:
-
-/usr/include/stdio.h:
-
 /usr/include/c++/4.8.2/x86_64-redhat-linux/bits/gthr-default.h:
-
-/usr/include/sys/select.h:
-
-/usr/include/stdc-predef.h:
 
 /usr/include/errno.h:
 
@@ -537,5 +554,3 @@ CMakeFiles/test.dir/tests/test.cc.o: /home/wang/Coroutine/tests/test.cc \
 /usr/include/ctype.h:
 
 /usr/include/linux/errno.h:
-
-/usr/include/stdlib.h:
