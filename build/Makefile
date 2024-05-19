@@ -133,17 +133,54 @@ duan/fast:
 .PHONY : duan/fast
 
 #=============================================================================
-# Target rules for targets named test
+# Target rules for targets named test_log
 
 # Build rule for target.
-test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test
-.PHONY : test
+test_log: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_log
+.PHONY : test_log
 
 # fast build rule for target.
-test/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
-.PHONY : test/fast
+test_log/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_log.dir/build.make CMakeFiles/test_log.dir/build
+.PHONY : test_log/fast
+
+#=============================================================================
+# Target rules for targets named test_config
+
+# Build rule for target.
+test_config: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_config
+.PHONY : test_config
+
+# fast build rule for target.
+test_config/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_config.dir/build.make CMakeFiles/test_config.dir/build
+.PHONY : test_config/fast
+
+duan_src/config.o: duan_src/config.cc.o
+.PHONY : duan_src/config.o
+
+# target to build an object file
+duan_src/config.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/duan.dir/build.make CMakeFiles/duan.dir/duan_src/config.cc.o
+.PHONY : duan_src/config.cc.o
+
+duan_src/config.i: duan_src/config.cc.i
+.PHONY : duan_src/config.i
+
+# target to preprocess a source file
+duan_src/config.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/duan.dir/build.make CMakeFiles/duan.dir/duan_src/config.cc.i
+.PHONY : duan_src/config.cc.i
+
+duan_src/config.s: duan_src/config.cc.s
+.PHONY : duan_src/config.s
+
+# target to generate assembly for a file
+duan_src/config.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/duan.dir/build.make CMakeFiles/duan.dir/duan_src/config.cc.s
+.PHONY : duan_src/config.cc.s
 
 duan_src/log.o: duan_src/log.cc.o
 .PHONY : duan_src/log.o
@@ -193,29 +230,53 @@ duan_src/util.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/duan.dir/build.make CMakeFiles/duan.dir/duan_src/util.cc.s
 .PHONY : duan_src/util.cc.s
 
-tests/test.o: tests/test.cc.o
-.PHONY : tests/test.o
+tests/test_config.o: tests/test_config.cc.o
+.PHONY : tests/test_config.o
 
 # target to build an object file
-tests/test.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/tests/test.cc.o
-.PHONY : tests/test.cc.o
+tests/test_config.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_config.dir/build.make CMakeFiles/test_config.dir/tests/test_config.cc.o
+.PHONY : tests/test_config.cc.o
 
-tests/test.i: tests/test.cc.i
-.PHONY : tests/test.i
+tests/test_config.i: tests/test_config.cc.i
+.PHONY : tests/test_config.i
 
 # target to preprocess a source file
-tests/test.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/tests/test.cc.i
-.PHONY : tests/test.cc.i
+tests/test_config.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_config.dir/build.make CMakeFiles/test_config.dir/tests/test_config.cc.i
+.PHONY : tests/test_config.cc.i
 
-tests/test.s: tests/test.cc.s
-.PHONY : tests/test.s
+tests/test_config.s: tests/test_config.cc.s
+.PHONY : tests/test_config.s
 
 # target to generate assembly for a file
-tests/test.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/tests/test.cc.s
-.PHONY : tests/test.cc.s
+tests/test_config.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_config.dir/build.make CMakeFiles/test_config.dir/tests/test_config.cc.s
+.PHONY : tests/test_config.cc.s
+
+tests/test_log.o: tests/test_log.cc.o
+.PHONY : tests/test_log.o
+
+# target to build an object file
+tests/test_log.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_log.dir/build.make CMakeFiles/test_log.dir/tests/test_log.cc.o
+.PHONY : tests/test_log.cc.o
+
+tests/test_log.i: tests/test_log.cc.i
+.PHONY : tests/test_log.i
+
+# target to preprocess a source file
+tests/test_log.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_log.dir/build.make CMakeFiles/test_log.dir/tests/test_log.cc.i
+.PHONY : tests/test_log.cc.i
+
+tests/test_log.s: tests/test_log.cc.s
+.PHONY : tests/test_log.s
+
+# target to generate assembly for a file
+tests/test_log.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_log.dir/build.make CMakeFiles/test_log.dir/tests/test_log.cc.s
+.PHONY : tests/test_log.cc.s
 
 # Help Target
 help:
@@ -226,16 +287,23 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... duan"
-	@echo "... test"
+	@echo "... test_config"
+	@echo "... test_log"
+	@echo "... duan_src/config.o"
+	@echo "... duan_src/config.i"
+	@echo "... duan_src/config.s"
 	@echo "... duan_src/log.o"
 	@echo "... duan_src/log.i"
 	@echo "... duan_src/log.s"
 	@echo "... duan_src/util.o"
 	@echo "... duan_src/util.i"
 	@echo "... duan_src/util.s"
-	@echo "... tests/test.o"
-	@echo "... tests/test.i"
-	@echo "... tests/test.s"
+	@echo "... tests/test_config.o"
+	@echo "... tests/test_config.i"
+	@echo "... tests/test_config.s"
+	@echo "... tests/test_log.o"
+	@echo "... tests/test_log.i"
+	@echo "... tests/test_log.s"
 .PHONY : help
 
 

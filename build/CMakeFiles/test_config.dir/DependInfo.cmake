@@ -8,9 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/wang/Coroutine/duan_src/config.cc" "CMakeFiles/duan.dir/duan_src/config.cc.o" "gcc" "CMakeFiles/duan.dir/duan_src/config.cc.o.d"
-  "/home/wang/Coroutine/duan_src/log.cc" "CMakeFiles/duan.dir/duan_src/log.cc.o" "gcc" "CMakeFiles/duan.dir/duan_src/log.cc.o.d"
-  "/home/wang/Coroutine/duan_src/util.cc" "CMakeFiles/duan.dir/duan_src/util.cc.o" "gcc" "CMakeFiles/duan.dir/duan_src/util.cc.o.d"
+  "/home/wang/Coroutine/tests/test_config.cc" "CMakeFiles/test_config.dir/tests/test_config.cc.o" "gcc" "CMakeFiles/test_config.dir/tests/test_config.cc.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

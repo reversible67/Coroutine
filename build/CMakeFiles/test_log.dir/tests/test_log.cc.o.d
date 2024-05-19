@@ -1,6 +1,6 @@
-CMakeFiles/duan.dir/duan_src/log.cc.o: \
- /home/wang/Coroutine/duan_src/log.cc /usr/include/stdc-predef.h \
- /home/wang/Coroutine/duan_src/log.h /usr/include/c++/4.8.2/iostream \
+CMakeFiles/test_log.dir/tests/test_log.cc.o: \
+ /home/wang/Coroutine/tests/test_log.cc /usr/include/stdc-predef.h \
+ /usr/include/c++/4.8.2/iostream \
  /usr/include/c++/4.8.2/x86_64-redhat-linux/bits/c++config.h \
  /usr/include/bits/wordsize.h \
  /usr/include/c++/4.8.2/x86_64-redhat-linux/bits/os_defines.h \
@@ -91,7 +91,15 @@ CMakeFiles/duan.dir/duan_src/log.cc.o: \
  /usr/include/c++/4.8.2/bits/locale_facets.tcc \
  /usr/include/c++/4.8.2/bits/basic_ios.tcc \
  /usr/include/c++/4.8.2/bits/ostream.tcc /usr/include/c++/4.8.2/istream \
- /usr/include/c++/4.8.2/bits/istream.tcc /usr/include/c++/4.8.2/memory \
+ /usr/include/c++/4.8.2/bits/istream.tcc /usr/include/c++/4.8.2/thread \
+ /usr/include/c++/4.8.2/chrono /usr/include/c++/4.8.2/ratio \
+ /usr/include/c++/4.8.2/limits /usr/include/c++/4.8.2/ctime \
+ /usr/include/c++/4.8.2/functional /usr/include/c++/4.8.2/typeinfo \
+ /usr/include/c++/4.8.2/tuple /usr/include/c++/4.8.2/utility \
+ /usr/include/c++/4.8.2/bits/stl_relops.h /usr/include/c++/4.8.2/array \
+ /usr/include/c++/4.8.2/stdexcept \
+ /usr/include/c++/4.8.2/bits/uses_allocator.h \
+ /usr/include/c++/4.8.2/memory \
  /usr/include/c++/4.8.2/bits/stl_construct.h \
  /usr/include/c++/4.8.2/ext/alloc_traits.h \
  /usr/include/c++/4.8.2/bits/alloc_traits.h \
@@ -99,15 +107,12 @@ CMakeFiles/duan.dir/duan_src/log.cc.o: \
  /usr/include/c++/4.8.2/bits/stl_uninitialized.h \
  /usr/include/c++/4.8.2/bits/stl_tempbuf.h \
  /usr/include/c++/4.8.2/bits/stl_raw_storage_iter.h \
- /usr/include/c++/4.8.2/typeinfo /usr/include/c++/4.8.2/ext/concurrence.h \
- /usr/include/c++/4.8.2/bits/uses_allocator.h \
- /usr/include/c++/4.8.2/functional /usr/include/c++/4.8.2/tuple \
- /usr/include/c++/4.8.2/utility /usr/include/c++/4.8.2/bits/stl_relops.h \
- /usr/include/c++/4.8.2/array /usr/include/c++/4.8.2/stdexcept \
+ /usr/include/c++/4.8.2/ext/concurrence.h \
  /usr/include/c++/4.8.2/bits/unique_ptr.h \
  /usr/include/c++/4.8.2/bits/shared_ptr.h \
  /usr/include/c++/4.8.2/bits/shared_ptr_base.h \
- /usr/include/c++/4.8.2/backward/auto_ptr.h /usr/include/c++/4.8.2/list \
+ /usr/include/c++/4.8.2/backward/auto_ptr.h \
+ /home/wang/Coroutine/tests/../duan_src/log.h /usr/include/c++/4.8.2/list \
  /usr/include/c++/4.8.2/bits/stl_list.h \
  /usr/include/c++/4.8.2/bits/list.tcc /usr/include/c++/4.8.2/sstream \
  /usr/include/c++/4.8.2/bits/sstream.tcc /usr/include/c++/4.8.2/fstream \
@@ -121,9 +126,10 @@ CMakeFiles/duan.dir/duan_src/log.cc.o: \
  /usr/include/c++/4.8.2/bits/stl_tree.h \
  /usr/include/c++/4.8.2/bits/stl_map.h \
  /usr/include/c++/4.8.2/bits/stl_multimap.h \
- /home/wang/Coroutine/duan_src/util.h /usr/include/sys/syscall.h \
+ /home/wang/Coroutine/tests/../duan_src/util.h /usr/include/sys/syscall.h \
  /usr/include/asm/unistd.h /usr/include/asm/unistd_64.h \
  /usr/include/bits/syscall.h /usr/include/unistd.h \
  /usr/include/bits/posix_opt.h /usr/include/bits/environments.h \
  /usr/include/bits/confname.h /usr/include/getopt.h \
- /home/wang/Coroutine/duan_src/singleton.h /usr/include/string.h
+ /home/wang/Coroutine/tests/../duan_src/singleton.h \
+ /home/wang/Coroutine/tests/../duan_src/util.h

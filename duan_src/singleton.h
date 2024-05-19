@@ -3,8 +3,8 @@
 2024/5/13 20:48
 by 六七
 */
-#ifndef __SYLAR_SINGLETON_H__
-#define __SYLAR_SINGLETON_H__
+#ifndef __DUAN_SINGLETON_H__
+#define __DUAN_SINGLETON_H__
 
 #include <memory>  // 智能指针头文件
 

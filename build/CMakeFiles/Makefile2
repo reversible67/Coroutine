@@ -67,7 +67,8 @@ CMAKE_BINARY_DIR = /home/wang/Coroutine/build
 
 # The main recursive "all" target.
 all: CMakeFiles/duan.dir/all
-all: CMakeFiles/test.dir/all
+all: CMakeFiles/test_log.dir/all
+all: CMakeFiles/test_config.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -76,7 +77,8 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/duan.dir/clean
-clean: CMakeFiles/test.dir/clean
+clean: CMakeFiles/test_log.dir/clean
+clean: CMakeFiles/test_config.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -86,12 +88,12 @@ clean: CMakeFiles/test.dir/clean
 CMakeFiles/duan.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/duan.dir/build.make CMakeFiles/duan.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/duan.dir/build.make CMakeFiles/duan.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/wang/Coroutine/build/CMakeFiles --progress-num=1,2,3 "Built target duan"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/wang/Coroutine/build/CMakeFiles --progress-num=1,2,3,4 "Built target duan"
 .PHONY : CMakeFiles/duan.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/duan.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wang/Coroutine/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wang/Coroutine/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/duan.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wang/Coroutine/build/CMakeFiles 0
 .PHONY : CMakeFiles/duan.dir/rule
@@ -106,30 +108,56 @@ CMakeFiles/duan.dir/clean:
 .PHONY : CMakeFiles/duan.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/test.dir
+# Target rules for target CMakeFiles/test_log.dir
 
 # All Build rule for target.
-CMakeFiles/test.dir/all: CMakeFiles/duan.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/wang/Coroutine/build/CMakeFiles --progress-num=4,5 "Built target test"
-.PHONY : CMakeFiles/test.dir/all
+CMakeFiles/test_log.dir/all: CMakeFiles/duan.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_log.dir/build.make CMakeFiles/test_log.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_log.dir/build.make CMakeFiles/test_log.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/wang/Coroutine/build/CMakeFiles --progress-num=7,8 "Built target test_log"
+.PHONY : CMakeFiles/test_log.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wang/Coroutine/build/CMakeFiles 5
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test.dir/all
+CMakeFiles/test_log.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wang/Coroutine/build/CMakeFiles 6
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_log.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wang/Coroutine/build/CMakeFiles 0
-.PHONY : CMakeFiles/test.dir/rule
+.PHONY : CMakeFiles/test_log.dir/rule
 
 # Convenience name for target.
-test: CMakeFiles/test.dir/rule
-.PHONY : test
+test_log: CMakeFiles/test_log.dir/rule
+.PHONY : test_log
 
 # clean rule for target.
-CMakeFiles/test.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/clean
-.PHONY : CMakeFiles/test.dir/clean
+CMakeFiles/test_log.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_log.dir/build.make CMakeFiles/test_log.dir/clean
+.PHONY : CMakeFiles/test_log.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/test_config.dir
+
+# All Build rule for target.
+CMakeFiles/test_config.dir/all: CMakeFiles/duan.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_config.dir/build.make CMakeFiles/test_config.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_config.dir/build.make CMakeFiles/test_config.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/wang/Coroutine/build/CMakeFiles --progress-num=5,6 "Built target test_config"
+.PHONY : CMakeFiles/test_config.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/test_config.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wang/Coroutine/build/CMakeFiles 6
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_config.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wang/Coroutine/build/CMakeFiles 0
+.PHONY : CMakeFiles/test_config.dir/rule
+
+# Convenience name for target.
+test_config: CMakeFiles/test_config.dir/rule
+.PHONY : test_config
+
+# clean rule for target.
+CMakeFiles/test_config.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_config.dir/build.make CMakeFiles/test_config.dir/clean
+.PHONY : CMakeFiles/test_config.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

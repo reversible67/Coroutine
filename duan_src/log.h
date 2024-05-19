@@ -16,6 +16,7 @@ by 六七
 #include <vector>
 #include <map>
 
+#include "util.h"
 #include "singleton.h"
 /*
 日志操作 一般使用宏来定义 会非常方便
@@ -44,6 +45,8 @@ by 六七
 #define DUAN_LOG_FMT_WARN(logger, fmt, ...) DUAN_LOG_FMT_LEVEL(logger, duan::LogLevel::WARN, fmt, __VA_ARGS__)
 #define DUAN_LOG_FMT_ERROR(logger, fmt, ...) DUAN_LOG_FMT_LEVEL(logger, duan::LogLevel::ERROR, fmt, __VA_ARGS__)
 #define DUAN_LOG_FMT_FATAL(logger, fmt, ...) DUAN_LOG_FMT_LEVEL(logger, duan::LogLevel::FATAL, fmt, __VA_ARGS__)
+
+#define DUAN_LOG_ROOT() duan::LoggerMgr::GetInstance()->getRoot()
 
 namespace duan{
 
@@ -206,6 +209,7 @@ public:
     Logger::ptr getLogger(const std::string& name);
 
     void init();
+    Logger::ptr getRoot() const { return m_root;}
 private:
     std::map<std::string, Logger::ptr> m_loggers;
     Logger::ptr m_root;
