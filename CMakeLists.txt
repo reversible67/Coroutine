@@ -22,7 +22,7 @@ add_library(duan SHARED ${LIB_SRC})
 
 add_executable(test_log tests/test_log.cc)
 add_dependencies(test_log duan)
-target_link_libraries(test_log duan)
+target_link_libraries(test_log duan -L/usr/local/lib64 -lyaml-cpp)
 
 add_executable(test_config tests/test_config.cc)
 add_dependencies(test_config duan)

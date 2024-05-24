@@ -54,11 +54,13 @@ CMakeFiles/duan.dir/duan_src/config.cc.o: /home/wang/Coroutine/duan_src/config.c
   /usr/include/bits/xopen_lim.h \
   /usr/include/c++/4.8.2/algorithm \
   /usr/include/c++/4.8.2/array \
+  /usr/include/c++/4.8.2/atomic \
   /usr/include/c++/4.8.2/backward/auto_ptr.h \
   /usr/include/c++/4.8.2/backward/binders.h \
   /usr/include/c++/4.8.2/bits/algorithmfwd.h \
   /usr/include/c++/4.8.2/bits/alloc_traits.h \
   /usr/include/c++/4.8.2/bits/allocator.h \
+  /usr/include/c++/4.8.2/bits/atomic_base.h \
   /usr/include/c++/4.8.2/bits/atomic_lockfree_defines.h \
   /usr/include/c++/4.8.2/bits/basic_ios.h \
   /usr/include/c++/4.8.2/bits/basic_ios.tcc \
@@ -74,7 +76,12 @@ CMakeFiles/duan.dir/duan_src/config.cc.o: /home/wang/Coroutine/duan_src/config.c
   /usr/include/c++/4.8.2/bits/fstream.tcc \
   /usr/include/c++/4.8.2/bits/functexcept.h \
   /usr/include/c++/4.8.2/bits/functional_hash.h \
+  /usr/include/c++/4.8.2/bits/gslice.h \
+  /usr/include/c++/4.8.2/bits/gslice_array.h \
   /usr/include/c++/4.8.2/bits/hash_bytes.h \
+  /usr/include/c++/4.8.2/bits/hashtable.h \
+  /usr/include/c++/4.8.2/bits/hashtable_policy.h \
+  /usr/include/c++/4.8.2/bits/indirect_array.h \
   /usr/include/c++/4.8.2/bits/ios_base.h \
   /usr/include/c++/4.8.2/bits/istream.tcc \
   /usr/include/c++/4.8.2/bits/list.tcc \
@@ -85,6 +92,7 @@ CMakeFiles/duan.dir/duan_src/config.cc.o: /home/wang/Coroutine/duan_src/config.c
   /usr/include/c++/4.8.2/bits/locale_facets_nonio.h \
   /usr/include/c++/4.8.2/bits/locale_facets_nonio.tcc \
   /usr/include/c++/4.8.2/bits/localefwd.h \
+  /usr/include/c++/4.8.2/bits/mask_array.h \
   /usr/include/c++/4.8.2/bits/memoryfwd.h \
   /usr/include/c++/4.8.2/bits/move.h \
   /usr/include/c++/4.8.2/bits/nested_exception.h \
@@ -97,6 +105,7 @@ CMakeFiles/duan.dir/duan_src/config.cc.o: /home/wang/Coroutine/duan_src/config.c
   /usr/include/c++/4.8.2/bits/range_access.h \
   /usr/include/c++/4.8.2/bits/shared_ptr.h \
   /usr/include/c++/4.8.2/bits/shared_ptr_base.h \
+  /usr/include/c++/4.8.2/bits/slice_array.h \
   /usr/include/c++/4.8.2/bits/sstream.tcc \
   /usr/include/c++/4.8.2/bits/stl_algo.h \
   /usr/include/c++/4.8.2/bits/stl_algobase.h \
@@ -110,10 +119,12 @@ CMakeFiles/duan.dir/duan_src/config.cc.o: /home/wang/Coroutine/duan_src/config.c
   /usr/include/c++/4.8.2/bits/stl_list.h \
   /usr/include/c++/4.8.2/bits/stl_map.h \
   /usr/include/c++/4.8.2/bits/stl_multimap.h \
+  /usr/include/c++/4.8.2/bits/stl_multiset.h \
   /usr/include/c++/4.8.2/bits/stl_numeric.h \
   /usr/include/c++/4.8.2/bits/stl_pair.h \
   /usr/include/c++/4.8.2/bits/stl_raw_storage_iter.h \
   /usr/include/c++/4.8.2/bits/stl_relops.h \
+  /usr/include/c++/4.8.2/bits/stl_set.h \
   /usr/include/c++/4.8.2/bits/stl_tempbuf.h \
   /usr/include/c++/4.8.2/bits/stl_tree.h \
   /usr/include/c++/4.8.2/bits/stl_uninitialized.h \
@@ -123,7 +134,13 @@ CMakeFiles/duan.dir/duan_src/config.cc.o: /home/wang/Coroutine/duan_src/config.c
   /usr/include/c++/4.8.2/bits/streambuf_iterator.h \
   /usr/include/c++/4.8.2/bits/stringfwd.h \
   /usr/include/c++/4.8.2/bits/unique_ptr.h \
+  /usr/include/c++/4.8.2/bits/unordered_map.h \
+  /usr/include/c++/4.8.2/bits/unordered_set.h \
   /usr/include/c++/4.8.2/bits/uses_allocator.h \
+  /usr/include/c++/4.8.2/bits/valarray_after.h \
+  /usr/include/c++/4.8.2/bits/valarray_array.h \
+  /usr/include/c++/4.8.2/bits/valarray_array.tcc \
+  /usr/include/c++/4.8.2/bits/valarray_before.h \
   /usr/include/c++/4.8.2/bits/vector.tcc \
   /usr/include/c++/4.8.2/cassert \
   /usr/include/c++/4.8.2/cctype \
@@ -167,6 +184,7 @@ CMakeFiles/duan.dir/duan_src/config.cc.o: /home/wang/Coroutine/duan_src/config.c
   /usr/include/c++/4.8.2/numeric \
   /usr/include/c++/4.8.2/ostream \
   /usr/include/c++/4.8.2/random \
+  /usr/include/c++/4.8.2/set \
   /usr/include/c++/4.8.2/sstream \
   /usr/include/c++/4.8.2/stdexcept \
   /usr/include/c++/4.8.2/streambuf \
@@ -174,7 +192,10 @@ CMakeFiles/duan.dir/duan_src/config.cc.o: /home/wang/Coroutine/duan_src/config.c
   /usr/include/c++/4.8.2/tuple \
   /usr/include/c++/4.8.2/type_traits \
   /usr/include/c++/4.8.2/typeinfo \
+  /usr/include/c++/4.8.2/unordered_map \
+  /usr/include/c++/4.8.2/unordered_set \
   /usr/include/c++/4.8.2/utility \
+  /usr/include/c++/4.8.2/valarray \
   /usr/include/c++/4.8.2/vector \
   /usr/include/c++/4.8.2/x86_64-redhat-linux/bits/atomic_word.h \
   /usr/include/c++/4.8.2/x86_64-redhat-linux/bits/basic_file.h \
@@ -232,6 +253,7 @@ CMakeFiles/duan.dir/duan_src/config.cc.o: /home/wang/Coroutine/duan_src/config.c
   /usr/lib/gcc/x86_64-redhat-linux/4.8.5/include/mm_malloc.h \
   /usr/lib/gcc/x86_64-redhat-linux/4.8.5/include/mmintrin.h \
   /usr/lib/gcc/x86_64-redhat-linux/4.8.5/include/stdarg.h \
+  /usr/lib/gcc/x86_64-redhat-linux/4.8.5/include/stdbool.h \
   /usr/lib/gcc/x86_64-redhat-linux/4.8.5/include/stddef.h \
   /usr/lib/gcc/x86_64-redhat-linux/4.8.5/include/stdint.h \
   /usr/lib/gcc/x86_64-redhat-linux/4.8.5/include/syslimits.h \
@@ -893,7 +915,38 @@ CMakeFiles/duan.dir/duan_src/config.cc.o: /home/wang/Coroutine/duan_src/config.c
   /usr/local/include/boost/utility/binary.hpp \
   /usr/local/include/boost/utility/enable_if.hpp \
   /usr/local/include/boost/utility/identity_type.hpp \
-  /usr/local/include/boost/version.hpp
+  /usr/local/include/boost/version.hpp \
+  /usr/local/include/yaml-cpp/binary.h \
+  /usr/local/include/yaml-cpp/dll.h \
+  /usr/local/include/yaml-cpp/emitter.h \
+  /usr/local/include/yaml-cpp/emitterdef.h \
+  /usr/local/include/yaml-cpp/emittermanip.h \
+  /usr/local/include/yaml-cpp/emitterstyle.h \
+  /usr/local/include/yaml-cpp/exceptions.h \
+  /usr/local/include/yaml-cpp/mark.h \
+  /usr/local/include/yaml-cpp/node/convert.h \
+  /usr/local/include/yaml-cpp/node/detail/impl.h \
+  /usr/local/include/yaml-cpp/node/detail/iterator.h \
+  /usr/local/include/yaml-cpp/node/detail/iterator_fwd.h \
+  /usr/local/include/yaml-cpp/node/detail/memory.h \
+  /usr/local/include/yaml-cpp/node/detail/node.h \
+  /usr/local/include/yaml-cpp/node/detail/node_data.h \
+  /usr/local/include/yaml-cpp/node/detail/node_iterator.h \
+  /usr/local/include/yaml-cpp/node/detail/node_ref.h \
+  /usr/local/include/yaml-cpp/node/emit.h \
+  /usr/local/include/yaml-cpp/node/impl.h \
+  /usr/local/include/yaml-cpp/node/iterator.h \
+  /usr/local/include/yaml-cpp/node/node.h \
+  /usr/local/include/yaml-cpp/node/parse.h \
+  /usr/local/include/yaml-cpp/node/ptr.h \
+  /usr/local/include/yaml-cpp/node/type.h \
+  /usr/local/include/yaml-cpp/noexcept.h \
+  /usr/local/include/yaml-cpp/null.h \
+  /usr/local/include/yaml-cpp/ostream_wrapper.h \
+  /usr/local/include/yaml-cpp/parser.h \
+  /usr/local/include/yaml-cpp/stlemitter.h \
+  /usr/local/include/yaml-cpp/traits.h \
+  /usr/local/include/yaml-cpp/yaml.h
 
 CMakeFiles/duan.dir/duan_src/log.cc.o: /home/wang/Coroutine/duan_src/log.cc \
   /home/wang/Coroutine/duan_src/log.h \
@@ -1129,6 +1182,44 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /home/wang/Coroutine/duan_src/log.cc:
 
+/usr/local/include/yaml-cpp/traits.h:
+
+/usr/local/include/yaml-cpp/parser.h:
+
+/usr/local/include/yaml-cpp/noexcept.h:
+
+/usr/local/include/yaml-cpp/node/type.h:
+
+/usr/local/include/yaml-cpp/node/ptr.h:
+
+/usr/local/include/yaml-cpp/node/impl.h:
+
+/usr/local/include/yaml-cpp/node/emit.h:
+
+/usr/local/include/yaml-cpp/node/detail/node_ref.h:
+
+/usr/local/include/yaml-cpp/node/detail/node_iterator.h:
+
+/usr/local/include/yaml-cpp/node/detail/node.h:
+
+/usr/local/include/yaml-cpp/node/detail/iterator_fwd.h:
+
+/usr/local/include/yaml-cpp/node/convert.h:
+
+/usr/local/include/yaml-cpp/mark.h:
+
+/usr/local/include/yaml-cpp/exceptions.h:
+
+/usr/local/include/yaml-cpp/emittermanip.h:
+
+/usr/local/include/yaml-cpp/emitterdef.h:
+
+/usr/local/include/yaml-cpp/emitter.h:
+
+/usr/local/include/yaml-cpp/dll.h:
+
+/usr/local/include/yaml-cpp/binary.h:
+
 /usr/local/include/boost/version.hpp:
 
 /usr/local/include/boost/utility/enable_if.hpp:
@@ -1146,6 +1237,8 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 /usr/local/include/boost/type_traits/remove_cv.hpp:
 
 /usr/local/include/boost/type_traits/make_unsigned.hpp:
+
+/usr/local/include/yaml-cpp/stlemitter.h:
 
 /usr/local/include/boost/type_traits/is_volatile.hpp:
 
@@ -1187,6 +1280,8 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/local/include/boost/type_traits/is_array.hpp:
 
+/usr/local/include/yaml-cpp/node/node.h:
+
 /usr/local/include/boost/type_traits/intrinsics.hpp:
 
 /usr/local/include/boost/type_traits/integral_constant.hpp:
@@ -1201,11 +1296,11 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/local/include/boost/type_traits/function_traits.hpp:
 
-/usr/local/include/boost/type_traits/enable_if.hpp:
-
 /usr/local/include/boost/type_traits/detail/yes_no_type.hpp:
 
 /usr/local/include/boost/type_traits/detail/is_mem_fun_pointer_impl.hpp:
+
+/usr/local/include/yaml-cpp/null.h:
 
 /usr/local/include/boost/type_traits/detail/is_likely_lambda.hpp:
 
@@ -1367,23 +1462,43 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/local/include/boost/predef/other.h:
 
-/usr/local/include/boost/mpl/aux_/advance_forward.hpp:
+/usr/local/include/boost/predef/os/windows.h:
 
-/usr/local/include/boost/type_traits/is_member_function_pointer.hpp:
+/usr/local/include/boost/predef/os/solaris.h:
 
-/usr/local/include/boost/mpl/vector/aux_/item.hpp:
+/usr/local/include/boost/predef/os/qnxnto.h:
 
-/usr/local/include/boost/mpl/aux_/O1_size_impl.hpp:
+/usr/local/include/boost/predef/os/macos.h:
 
-/usr/local/include/boost/mpl/advance_fwd.hpp:
+/usr/local/include/yaml-cpp/node/detail/impl.h:
 
-/usr/local/include/boost/mpl/advance.hpp:
+/usr/local/include/boost/predef/version.h:
 
-/usr/local/include/boost/predef/language/objc.h:
+/usr/local/include/boost/predef/os/irix.h:
 
-/usr/local/include/boost/mpl/aux_/arity.hpp:
+/usr/local/include/boost/predef/os/ios.h:
 
-/usr/local/include/boost/math/tools/real_cast.hpp:
+/usr/local/include/boost/predef/os/unix.h:
+
+/usr/local/include/boost/predef/os/hpux.h:
+
+/usr/local/include/boost/predef/os/cygwin.h:
+
+/usr/local/include/boost/predef/os/bsd/open.h:
+
+/usr/local/include/boost/predef/os/bsd/free.h:
+
+/usr/local/include/boost/predef/os/bsd/dragonfly.h:
+
+/usr/local/include/boost/predef/os/bsd/bsdi.h:
+
+/usr/local/include/boost/predef/os/bsd.h:
+
+/usr/local/include/boost/predef/os/beos.h:
+
+/usr/local/include/boost/predef/os/android.h:
+
+/usr/local/include/boost/predef/os/amigaos.h:
 
 /usr/local/include/boost/mpl/aux_/traits_lambda_spec.hpp:
 
@@ -1396,6 +1511,8 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 /usr/local/include/boost/type_traits/detail/config.hpp:
 
 /usr/local/include/boost/iterator/reverse_iterator.hpp:
+
+/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include/stdbool.h:
 
 /usr/local/include/boost/iterator/iterator_facade.hpp:
 
@@ -1442,10 +1559,6 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 /usr/local/include/boost/config/helper_macros.hpp:
 
 /usr/include/c++/4.8.2/bits/basic_string.h:
-
-/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include/emmintrin.h:
-
-/usr/local/include/boost/predef/architecture/sys390.h:
 
 /usr/local/include/boost/concept_check.hpp:
 
@@ -1511,27 +1624,23 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/local/include/boost/mpl/begin_end.hpp:
 
+/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include/emmintrin.h:
+
 /usr/include/unistd.h:
 
 /usr/include/gnu/stubs.h:
 
-/usr/local/include/boost/type_traits/has_plus_assign.hpp:
-
-/usr/local/include/boost/move/detail/std_ns_begin.hpp:
-
-/usr/include/bits/mathcalls.h:
-
 /usr/local/include/boost/array.hpp:
 
+/usr/local/include/yaml-cpp/node/detail/memory.h:
+
 /usr/local/include/boost/core/enable_if.hpp:
+
+/usr/include/c++/4.8.2/bits/unordered_set.h:
 
 /usr/local/include/boost/predef/hardware.h:
 
 /usr/include/sys/syscall.h:
-
-/usr/local/include/boost/mpl/aux_/advance_backward.hpp:
-
-/usr/local/include/boost/numeric/conversion/detail/sign_mixture.hpp:
 
 /usr/include/bits/sys_errlist.h:
 
@@ -1557,12 +1666,6 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/local/include/boost/mpl/pop_back_fwd.hpp:
 
-/usr/local/include/boost/preprocessor/comma_if.hpp:
-
-/usr/local/include/boost/mpl/and.hpp:
-
-/usr/local/include/boost/iterator/interoperable.hpp:
-
 /usr/include/sys/select.h:
 
 /usr/include/stdc-predef.h:
@@ -1575,15 +1678,9 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/include/c++/4.8.2/bits/stl_bvector.h:
 
-/usr/local/include/boost/predef/version.h:
-
-/usr/local/include/boost/predef/os/irix.h:
-
 /usr/include/errno.h:
 
 /usr/include/c++/4.8.2/bits/stl_numeric.h:
-
-/usr/local/include/boost/predef/os/bsd/dragonfly.h:
 
 /usr/include/endian.h:
 
@@ -1601,17 +1698,7 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/local/include/boost/mpl/times.hpp:
 
-/usr/include/sys/types.h:
-
-/usr/include/c++/4.8.2/x86_64-redhat-linux/bits/messages_members.h:
-
 /usr/local/include/boost/mpl/aux_/config/workaround.hpp:
-
-/usr/include/bits/huge_val.h:
-
-/usr/local/include/boost/mpl/aux_/arithmetic_op.hpp:
-
-/usr/local/include/boost/mpl/always.hpp:
 
 /usr/include/c++/4.8.2/x86_64-redhat-linux/bits/ctype_inline.h:
 
@@ -1637,9 +1724,19 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/local/include/boost/mpl/int_fwd.hpp:
 
-/usr/local/include/boost/utility/binary.hpp:
+/usr/include/c++/4.8.2/valarray:
 
-/usr/local/include/boost/move/detail/std_ns_end.hpp:
+/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include/mm_malloc.h:
+
+/usr/include/c++/4.8.2/x86_64-redhat-linux/bits/time_members.h:
+
+/usr/include/c++/4.8.2/complex:
+
+/usr/local/include/boost/iterator/iterator_concepts.hpp:
+
+/usr/local/include/boost/mpl/aux_/config/dtp.hpp:
+
+/usr/include/c++/4.8.2/unordered_map:
 
 /usr/include/c++/4.8.2/cstdlib:
 
@@ -1653,31 +1750,49 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/include/c++/4.8.2/bits/stl_algobase.h:
 
-/usr/include/c++/4.8.2/stdexcept:
-
-/usr/local/include/boost/mpl/aux_/full_lambda.hpp:
-
 /usr/include/c++/4.8.2/sstream:
 
-/usr/include/c++/4.8.2/bits/istream.tcc:
+/usr/local/include/yaml-cpp/ostream_wrapper.h:
 
-/usr/local/include/boost/config/stdlib/libstdcpp3.hpp:
+/usr/local/include/boost/concept/detail/concept_def.hpp:
 
-/usr/local/include/boost/predef/other/endian.h:
+/usr/include/c++/4.8.2/new:
 
-/usr/local/include/boost/numeric/conversion/converter_policies.hpp:
+/usr/include/c++/4.8.2/bits/char_traits.h:
+
+/usr/local/include/boost/type_traits/is_scalar.hpp:
+
+/usr/include/ctype.h:
+
+/usr/local/include/boost/math/tools/user.hpp:
+
+/usr/include/c++/4.8.2/vector:
+
+/usr/local/include/boost/mpl/aux_/config/bcc.hpp:
+
+/usr/include/c++/4.8.2/locale:
+
+/usr/include/bits/setjmp.h:
+
+/usr/local/include/boost/predef/architecture/sys370.h:
+
+/usr/local/include/boost/preprocessor/tuple/rem.hpp:
+
+/usr/include/c++/4.8.2/bits/shared_ptr.h:
+
+/usr/include/c++/4.8.2/iterator:
+
+/usr/include/c++/4.8.2/iosfwd:
+
+/usr/include/c++/4.8.2/ios:
+
+/usr/include/c++/4.8.2/bits/fstream.tcc:
+
+/usr/local/include/boost/predef/library/std/msl.h:
+
+/usr/include/c++/4.8.2/functional:
 
 /usr/include/c++/4.8.2/bits/hash_bytes.h:
-
-/usr/local/include/boost/mpl/aux_/fold_impl.hpp:
-
-/usr/include/c++/4.8.2/bits/codecvt.h:
-
-/usr/local/include/boost/mpl/apply_fwd.hpp:
-
-/usr/local/include/boost/predef/os/macos.h:
-
-/usr/local/include/boost/predef/os/bsd.h:
 
 /usr/include/c++/4.8.2/x86_64-redhat-linux/bits/atomic_word.h:
 
@@ -1689,6 +1804,10 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/include/c++/4.8.2/bits/basic_ios.tcc:
 
+/usr/local/include/boost/mpl/aux_/fold_impl.hpp:
+
+/usr/include/c++/4.8.2/bits/slice_array.h:
+
 /usr/local/include/boost/config/compiler/gcc.hpp:
 
 /usr/local/include/boost/lexical_cast/detail/inf_nan.hpp:
@@ -1697,9 +1816,19 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/include/bits/environments.h:
 
-/usr/local/include/boost/lexical_cast/detail/lcast_char_constants.hpp:
+/usr/include/c++/4.8.2/bits/codecvt.h:
 
-/usr/local/include/boost/mpl/aux_/preprocessed/gcc/greater_equal.hpp:
+/usr/local/include/boost/mpl/arg_fwd.hpp:
+
+/usr/local/include/boost/mpl/aux_/preprocessed/gcc/less_equal.hpp:
+
+/usr/local/include/boost/mpl/vector/vector0.hpp:
+
+/usr/include/c++/4.8.2/bits/gslice.h:
+
+/usr/local/include/boost/mpl/same_as.hpp:
+
+/usr/local/include/boost/mpl/vector/aux_/iterator.hpp:
 
 /usr/include/bits/types.h:
 
@@ -1723,9 +1852,13 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/local/include/boost/mpl/aux_/config/msvc.hpp:
 
-/usr/local/include/boost/mpl/vector/aux_/tag.hpp:
+/usr/include/c++/4.8.2/bits/gslice_array.h:
 
-/usr/local/include/boost/predef/os/windows.h:
+/usr/local/include/boost/mpl/aux_/config/lambda.hpp:
+
+/usr/local/include/boost/mpl/aux_/config/typeof.hpp:
+
+/usr/local/include/boost/mpl/vector/aux_/tag.hpp:
 
 /usr/local/include/boost/core/checked_delete.hpp:
 
@@ -1745,19 +1878,37 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/include/c++/4.8.2/bits/exception_ptr.h:
 
+/usr/include/c++/4.8.2/stdexcept:
+
+/usr/local/include/boost/mpl/aux_/full_lambda.hpp:
+
 /usr/local/include/boost/mpl/aux_/config/has_xxx.hpp:
 
-/usr/local/include/boost/mpl/aux_/msvc_never_true.hpp:
+/usr/local/include/boost/preprocessor/seq/enum.hpp:
+
+/usr/include/bits/endian.h:
+
+/usr/include/bits/mathcalls.h:
+
+/usr/local/include/boost/mpl/aux_/preprocessed/gcc/greater_equal.hpp:
+
+/usr/local/include/boost/lexical_cast/detail/lcast_char_constants.hpp:
+
+/usr/local/include/boost/type_traits/has_plus_assign.hpp:
+
+/usr/local/include/boost/move/detail/std_ns_begin.hpp:
 
 /usr/include/bits/wordsize.h:
 
 /usr/include/c++/4.8.2/bits/random.tcc:
 
-/usr/include/c++/4.8.2/bits/char_traits.h:
+/usr/include/c++/4.8.2/bits/valarray_array.tcc:
 
-/usr/local/include/boost/concept/detail/concept_def.hpp:
+/usr/include/c++/4.8.2/bits/hashtable_policy.h:
 
-/usr/include/c++/4.8.2/new:
+/usr/include/c++/4.8.2/random:
+
+/usr/include/c++/4.8.2/bits/stl_uninitialized.h:
 
 /usr/local/include/boost/math/tools/promotion.hpp:
 
@@ -1787,36 +1938,6 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/include/c++/4.8.2/bits/ostream.tcc:
 
-/usr/include/c++/4.8.2/streambuf:
-
-/home/wang/Coroutine/duan_src/log.h:
-
-/usr/include/c++/4.8.2/x86_64-redhat-linux/bits/basic_file.h:
-
-/usr/include/bits/sched.h:
-
-/usr/local/include/boost/mpl/vector/aux_/back.hpp:
-
-/usr/local/include/boost/preprocessor/facilities/overload.hpp:
-
-/usr/local/include/boost/predef/language/stdcpp.h:
-
-/usr/include/c++/4.8.2/bits/ios_base.h:
-
-/usr/include/c++/4.8.2/memory:
-
-/usr/include/c++/4.8.2/bits/list.tcc:
-
-/usr/local/include/boost/preprocessor/logical/bool.hpp:
-
-/usr/local/include/boost/mpl/aux_/config/integral.hpp:
-
-/usr/include/c++/4.8.2/x86_64-redhat-linux/bits/gthr.h:
-
-/usr/local/include/boost/mpl/list/aux_/front.hpp:
-
-/usr/local/include/boost/mpl/sequence_tag_fwd.hpp:
-
 /usr/include/bits/xopen_lim.h:
 
 /usr/local/include/boost/preprocessor/repetition/repeat_from_to.hpp:
@@ -1831,9 +1952,23 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/include/bits/confname.h:
 
-/usr/local/include/boost/preprocessor/seq/enum.hpp:
+/usr/local/include/boost/config/stdlib/libstdcpp3.hpp:
 
-/usr/include/bits/endian.h:
+/usr/local/include/boost/predef/other/endian.h:
+
+/usr/local/include/boost/numeric/conversion/converter_policies.hpp:
+
+/usr/include/c++/4.8.2/bits/istream.tcc:
+
+/usr/include/c++/4.8.2/bits/valarray_before.h:
+
+/usr/include/sys/types.h:
+
+/usr/include/c++/4.8.2/x86_64-redhat-linux/bits/messages_members.h:
+
+/usr/include/c++/4.8.2/atomic:
+
+/usr/include/stdio.h:
 
 /usr/local/include/boost/lexical_cast/detail/converter_numeric.hpp:
 
@@ -1853,9 +1988,9 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/local/include/boost/predef/language/stdc.h:
 
-/usr/local/include/boost/static_assert.hpp:
+/usr/include/c++/4.8.2/debug/debug.h:
 
-/usr/include/c++/4.8.2/bits/locale_classes.h:
+/usr/local/include/boost/mpl/aux_/preprocessed/gcc/minus.hpp:
 
 /usr/local/include/boost/core/noncopyable.hpp:
 
@@ -1863,15 +1998,23 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/include/libintl.h:
 
-/usr/local/include/boost/mpl/aux_/arg_typedef.hpp:
-
-/usr/include/bits/huge_vall.h:
-
 /usr/local/include/boost/lexical_cast/detail/lcast_unsigned_converters.hpp:
 
 /usr/include/bits/sigset.h:
 
-/usr/include/c++/4.8.2/iterator:
+/usr/include/c++/4.8.2/streambuf:
+
+/home/wang/Coroutine/duan_src/log.h:
+
+/usr/include/c++/4.8.2/x86_64-redhat-linux/bits/basic_file.h:
+
+/usr/include/bits/sched.h:
+
+/usr/local/include/boost/mpl/vector/aux_/back.hpp:
+
+/usr/local/include/boost/preprocessor/facilities/overload.hpp:
+
+/usr/local/include/boost/predef/language/stdcpp.h:
 
 /usr/include/bits/wchar.h:
 
@@ -1883,35 +2026,23 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/local/include/boost/mpl/limits/list.hpp:
 
-/usr/include/c++/4.8.2/vector:
-
-/usr/local/include/boost/mpl/aux_/config/bcc.hpp:
-
-/usr/include/c++/4.8.2/locale:
-
-/usr/include/bits/setjmp.h:
-
-/usr/local/include/boost/predef/architecture/sys370.h:
-
 /home/wang/Coroutine/duan_src/util.h:
 
 /usr/include/c++/4.8.2/bits/stl_algo.h:
 
-/usr/include/c++/4.8.2/bits/stl_uninitialized.h:
+/usr/local/include/boost/type_traits/add_pointer.hpp:
 
-/usr/include/c++/4.8.2/random:
+/usr/include/libio.h:
 
-/usr/local/include/boost/mpl/aux_/preprocessed/gcc/minus.hpp:
+/usr/include/c++/4.8.2/fstream:
 
-/usr/include/c++/4.8.2/debug/debug.h:
+/usr/include/bits/huge_valf.h:
 
 /usr/include/c++/4.8.2/bits/postypes.h:
 
 /usr/include/bits/local_lim.h:
 
 /usr/local/include/boost/container/container_fwd.hpp:
-
-/usr/local/include/boost/predef/os/bsd/bsdi.h:
 
 /usr/include/c++/4.8.2/climits:
 
@@ -1927,11 +2058,7 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/local/include/boost/mpl/vector/aux_/push_front.hpp:
 
-/usr/local/include/boost/mpl/arg_fwd.hpp:
-
-/usr/local/include/boost/preprocessor/tuple/rem.hpp:
-
-/usr/include/c++/4.8.2/bits/shared_ptr.h:
+/usr/include/c++/4.8.2/bits/stl_multiset.h:
 
 /usr/lib/gcc/x86_64-redhat-linux/4.8.5/include/xmmintrin.h:
 
@@ -1979,13 +2106,13 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/local/include/boost/predef/library/c/vms.h:
 
-/usr/include/c++/4.8.2/map:
+/usr/local/include/boost/type_traits/add_lvalue_reference.hpp:
 
-/usr/local/include/boost/mpl/arg.hpp:
+/usr/include/c++/4.8.2/limits:
 
-/usr/include/wctype.h:
+/usr/local/include/boost/lexical_cast/detail/converter_lexical_streams.hpp:
 
-/usr/local/include/boost/mpl/if.hpp:
+/usr/include/c++/4.8.2/cerrno:
 
 /home/wang/Coroutine/duan_src/config.h:
 
@@ -1998,6 +2125,40 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 /usr/include/asm-generic/errno.h:
 
 /usr/include/bits/locale.h:
+
+/usr/local/include/boost/iterator/detail/config_def.hpp:
+
+/usr/include/asm/unistd.h:
+
+/usr/local/include/boost/predef/architecture/sys390.h:
+
+/usr/include/c++/4.8.2/bits/hashtable.h:
+
+/usr/local/include/yaml-cpp/node/detail/iterator.h:
+
+/usr/include/c++/4.8.2/bits/streambuf_iterator.h:
+
+/usr/local/include/boost/predef/compiler/sunpro.h:
+
+/usr/include/c++/4.8.2/bits/ios_base.h:
+
+/usr/include/c++/4.8.2/memory:
+
+/usr/include/c++/4.8.2/bits/list.tcc:
+
+/usr/local/include/boost/preprocessor/logical/bool.hpp:
+
+/usr/local/include/boost/mpl/aux_/config/integral.hpp:
+
+/usr/include/c++/4.8.2/x86_64-redhat-linux/bits/gthr.h:
+
+/usr/local/include/boost/mpl/list/aux_/front.hpp:
+
+/usr/local/include/boost/mpl/sequence_tag_fwd.hpp:
+
+/usr/local/include/boost/static_assert.hpp:
+
+/usr/include/c++/4.8.2/bits/locale_classes.h:
 
 /usr/include/c++/4.8.2/bits/locale_classes.tcc:
 
@@ -2019,6 +2180,8 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/include/c++/4.8.2/tuple:
 
+/usr/local/include/yaml-cpp/node/detail/node_data.h:
+
 /usr/include/c++/4.8.2/bits/stl_tree.h:
 
 /usr/local/include/boost/mpl/multiplies.hpp:
@@ -2026,6 +2189,8 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 /usr/local/include/boost/lexical_cast/detail/widest_char.hpp:
 
 /usr/local/include/boost/predef/os.h:
+
+/usr/local/include/yaml-cpp/yaml.h:
 
 /usr/local/include/boost/mpl/list.hpp:
 
@@ -2036,8 +2201,6 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 /usr/include/c++/4.8.2/bits/move.h:
 
 /usr/include/c++/4.8.2/cwchar:
-
-/usr/local/include/boost/mpl/assert.hpp:
 
 /usr/include/c++/4.8.2/bits/vector.tcc:
 
@@ -2051,6 +2214,14 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/include/asm-generic/errno-base.h:
 
+/usr/local/include/boost/mpl/aux_/preprocessor/enum.hpp:
+
+/usr/local/include/boost/math/policies/policy.hpp:
+
+/usr/include/c++/4.8.2/initializer_list:
+
+/usr/local/include/boost/mpl/aux_/numeric_op.hpp:
+
 /usr/local/include/boost/mpl/long.hpp:
 
 /usr/local/include/boost/predef/os/haiku.h:
@@ -2060,10 +2231,6 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 /usr/include/c++/4.8.2/bits/stl_construct.h:
 
 /usr/lib/gcc/x86_64-redhat-linux/4.8.5/include/stddef.h:
-
-/usr/local/include/boost/mpl/aux_/adl_barrier.hpp:
-
-/usr/local/include/boost/predef/architecture/alpha.h:
 
 /usr/local/include/boost/range/detail/msvc_has_iterator_workaround.hpp:
 
@@ -2080,20 +2247,6 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 /usr/include/c++/4.8.2/bits/atomic_lockfree_defines.h:
 
 /usr/local/include/boost/predef/hardware/simd/x86_amd.h:
-
-/usr/include/c++/4.8.2/bits/fstream.tcc:
-
-/usr/include/c++/4.8.2/ios:
-
-/usr/local/include/boost/predef/library/std/msl.h:
-
-/usr/include/bits/huge_valf.h:
-
-/usr/local/include/boost/type_traits/add_pointer.hpp:
-
-/usr/include/libio.h:
-
-/usr/include/c++/4.8.2/fstream:
 
 /usr/include/c++/4.8.2/bits/stl_map.h:
 
@@ -2113,8 +2266,6 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/include/c++/4.8.2/bits/stl_pair.h:
 
-/usr/include/stdio.h:
-
 /usr/include/c++/4.8.2/bits/stl_tempbuf.h:
 
 /usr/local/include/boost/predef/hardware/simd/x86.h:
@@ -2125,17 +2276,9 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/local/include/boost/predef/compiler/gcc_xml.h:
 
-/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include/mm_malloc.h:
-
-/usr/include/c++/4.8.2/x86_64-redhat-linux/bits/time_members.h:
-
-/usr/include/c++/4.8.2/complex:
-
-/usr/local/include/boost/iterator/iterator_concepts.hpp:
-
-/usr/local/include/boost/mpl/aux_/config/dtp.hpp:
-
 /usr/include/c++/4.8.2/bits/concept_check.h:
+
+/usr/local/include/yaml-cpp/node/iterator.h:
 
 /usr/local/include/boost/mpl/aux_/preprocessed/gcc/greater.hpp:
 
@@ -2143,27 +2286,29 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/include/c++/4.8.2/bits/stream_iterator.h:
 
-/usr/include/c++/4.8.2/bits/streambuf_iterator.h:
-
-/usr/local/include/boost/predef/compiler/sunpro.h:
-
 /usr/include/c++/4.8.2/bits/range_access.h:
 
 /usr/local/include/boost/math/special_functions/detail/round_fwd.hpp:
 
-/usr/local/include/boost/predef/platform/ios.h:
-
-/usr/include/assert.h:
-
-/usr/local/include/boost/mpl/O1_size.hpp:
-
-/usr/local/include/boost/predef/os/bsd/free.h:
-
 /usr/include/c++/4.8.2/x86_64-redhat-linux/bits/c++allocator.h:
+
+/usr/include/c++/4.8.2/bits/unordered_map.h:
+
+/usr/local/include/boost/type_traits/is_reference.hpp:
+
+/usr/local/include/boost/mpl/list/aux_/iterator.hpp:
 
 /usr/local/include/boost/config/detail/select_compiler_config.hpp:
 
 /usr/include/c++/4.8.2/bits/uses_allocator.h:
+
+/usr/include/c++/4.8.2/bits/valarray_after.h:
+
+/usr/local/include/boost/math/tools/real_cast.hpp:
+
+/usr/include/c++/4.8.2/bits/valarray_array.h:
+
+/usr/local/include/boost/mpl/aux_/config/overload_resolution.hpp:
 
 /usr/local/include/boost/iterator/detail/facade_iterator_category.hpp:
 
@@ -2181,13 +2326,11 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/include/c++/4.8.2/cctype:
 
-/usr/local/include/boost/lexical_cast/detail/converter_lexical_streams.hpp:
+/usr/include/c++/4.8.2/iostream:
 
-/usr/include/c++/4.8.2/cerrno:
+/usr/include/c++/4.8.2/unordered_set:
 
-/usr/local/include/boost/type_traits/add_lvalue_reference.hpp:
-
-/usr/include/c++/4.8.2/limits:
+/usr/local/include/boost/numeric/conversion/detail/conversion_traits.hpp:
 
 /usr/local/include/boost/preprocessor/repetition/detail/for.hpp:
 
@@ -2219,6 +2362,10 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/include/c++/4.8.2/ostream:
 
+/usr/local/include/boost/type_traits/enable_if.hpp:
+
+/usr/include/c++/4.8.2/bits/mask_array.h:
+
 /usr/local/include/boost/math/special_functions/detail/fp_traits.hpp:
 
 /usr/include/c++/4.8.2/cstring:
@@ -2232,10 +2379,6 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 /usr/local/include/boost/mpl/vector/aux_/front.hpp:
 
 /usr/local/include/boost/predef/hardware/simd/x86_amd/versions.h:
-
-/usr/include/asm/unistd.h:
-
-/usr/local/include/boost/iterator/detail/config_def.hpp:
 
 /usr/include/c++/4.8.2/ext/alloc_traits.h:
 
@@ -2265,29 +2408,69 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/include/c++/4.8.2/ext/numeric_traits.h:
 
-/usr/include/c++/4.8.2/functional:
+/usr/local/include/boost/utility/binary.hpp:
 
-/usr/local/include/boost/mpl/aux_/numeric_op.hpp:
+/usr/local/include/boost/move/detail/std_ns_end.hpp:
 
-/usr/include/c++/4.8.2/initializer_list:
+/usr/local/include/boost/predef/platform/ios.h:
 
-/usr/local/include/boost/math/policies/policy.hpp:
+/usr/include/assert.h:
 
-/usr/local/include/boost/mpl/aux_/preprocessor/enum.hpp:
+/usr/local/include/boost/mpl/O1_size.hpp:
 
-/usr/include/c++/4.8.2/iosfwd:
+/usr/local/include/boost/mpl/aux_/arity.hpp:
 
-/usr/include/c++/4.8.2/iostream:
+/usr/local/include/boost/mpl/advance.hpp:
 
-/usr/local/include/boost/type_traits/is_scalar.hpp:
+/usr/local/include/boost/predef/language/objc.h:
 
-/usr/include/ctype.h:
+/usr/local/include/boost/mpl/advance_fwd.hpp:
 
-/usr/local/include/boost/math/tools/user.hpp:
+/usr/local/include/boost/mpl/always.hpp:
 
-/usr/local/include/boost/mpl/vector/vector0.hpp:
+/usr/local/include/boost/preprocessor/comma_if.hpp:
 
-/usr/local/include/boost/mpl/aux_/preprocessed/gcc/less_equal.hpp:
+/usr/local/include/boost/iterator/interoperable.hpp:
+
+/usr/local/include/boost/mpl/and.hpp:
+
+/usr/local/include/boost/mpl/apply_fwd.hpp:
+
+/usr/include/c++/4.8.2/map:
+
+/usr/local/include/boost/mpl/arg.hpp:
+
+/usr/include/wctype.h:
+
+/usr/local/include/boost/mpl/if.hpp:
+
+/usr/local/include/boost/mpl/assert.hpp:
+
+/usr/local/include/boost/mpl/aux_/O1_size_impl.hpp:
+
+/usr/local/include/boost/predef/architecture/alpha.h:
+
+/usr/local/include/boost/mpl/aux_/adl_barrier.hpp:
+
+/usr/local/include/boost/mpl/aux_/advance_backward.hpp:
+
+/usr/local/include/boost/numeric/conversion/detail/sign_mixture.hpp:
+
+/usr/local/include/boost/mpl/aux_/advance_forward.hpp:
+
+/usr/local/include/boost/type_traits/is_member_function_pointer.hpp:
+
+/usr/local/include/boost/mpl/vector/aux_/item.hpp:
+
+/usr/include/bits/huge_vall.h:
+
+/usr/local/include/boost/mpl/aux_/arg_typedef.hpp:
+
+/usr/local/include/boost/mpl/aux_/msvc_never_true.hpp:
+
+/usr/include/bits/huge_val.h:
+
+/usr/local/include/boost/mpl/aux_/arithmetic_op.hpp:
 
 /usr/local/include/boost/mpl/aux_/arity_spec.hpp:
 
@@ -2339,13 +2522,7 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/local/include/boost/mpl/plus.hpp:
 
-/usr/local/include/boost/mpl/aux_/config/lambda.hpp:
-
-/usr/local/include/boost/mpl/aux_/config/typeof.hpp:
-
 /usr/local/include/boost/mpl/aux_/config/nttp.hpp:
-
-/usr/local/include/boost/mpl/aux_/config/overload_resolution.hpp:
 
 /usr/local/include/boost/mpl/aux_/template_arity.hpp:
 
@@ -2380,6 +2557,8 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 /usr/local/include/boost/predef/os/linux.h:
 
 /usr/local/include/boost/mpl/aux_/include_preprocessed.hpp:
+
+/usr/include/c++/4.8.2/bits/stl_set.h:
 
 /usr/local/include/boost/predef/library/std/modena.h:
 
@@ -2419,9 +2598,11 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/local/include/boost/mpl/aux_/iter_fold_impl.hpp:
 
-/usr/local/include/boost/mpl/O1_size_fwd.hpp:
-
 /usr/include/c++/4.8.2/bits/allocator.h:
+
+/usr/include/c++/4.8.2/bits/atomic_base.h:
+
+/usr/local/include/boost/mpl/O1_size_fwd.hpp:
 
 /usr/local/include/boost/mpl/aux_/lambda_arity_param.hpp:
 
@@ -2456,8 +2637,6 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 /usr/local/include/boost/mpl/aux_/nttp_decl.hpp:
 
 /usr/local/include/boost/mpl/aux_/numeric_cast_utils.hpp:
-
-/usr/local/include/boost/predef/os/bsd/open.h:
 
 /usr/local/include/boost/mpl/aux_/preprocessed/gcc/apply.hpp:
 
@@ -2533,6 +2712,10 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/local/include/boost/mpl/aux_/type_wrapper.hpp:
 
+/usr/local/include/boost/predef/os/os400.h:
+
+/usr/local/include/boost/mpl/aux_/yes_no.hpp:
+
 /usr/local/include/boost/mpl/back_fwd.hpp:
 
 /usr/include/wchar.h:
@@ -2573,6 +2756,8 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/local/include/boost/mpl/find.hpp:
 
+/usr/local/include/yaml-cpp/emitterstyle.h:
+
 /usr/local/include/boost/preprocessor/empty.hpp:
 
 /usr/local/include/boost/mpl/or.hpp:
@@ -2605,6 +2790,8 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/local/include/boost/mpl/integral_c_fwd.hpp:
 
+/usr/include/c++/4.8.2/set:
+
 /usr/local/include/boost/mpl/iter_fold.hpp:
 
 /usr/local/include/boost/mpl/iter_fold_if.hpp:
@@ -2618,6 +2805,8 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 /usr/local/include/boost/preprocessor/seq/cat.hpp:
 
 /usr/local/include/boost/mpl/lambda_fwd.hpp:
+
+/usr/local/include/yaml-cpp/node/parse.h:
 
 /usr/include/c++/4.8.2/bits/ostream_insert.h:
 
@@ -2642,10 +2831,6 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 /usr/local/include/boost/mpl/vector/aux_/begin_end.hpp:
 
 /usr/local/include/boost/mpl/list/aux_/include_preprocessed.hpp:
-
-/usr/local/include/boost/type_traits/is_reference.hpp:
-
-/usr/local/include/boost/mpl/list/aux_/iterator.hpp:
 
 /usr/local/include/boost/mpl/list/aux_/pop_front.hpp:
 
@@ -2691,6 +2876,10 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/local/include/boost/mpl/push_front.hpp:
 
+/usr/local/include/boost/predef/os/vms.h:
+
+/usr/local/include/boost/mpl/push_front_fwd.hpp:
+
 /usr/local/include/boost/mpl/quote.hpp:
 
 /usr/local/include/boost/lexical_cast/try_lexical_convert.hpp:
@@ -2700,10 +2889,6 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 /usr/local/include/boost/mpl/remove_if.hpp:
 
 /usr/local/include/boost/mpl/reverse_fold.hpp:
-
-/usr/local/include/boost/mpl/same_as.hpp:
-
-/usr/local/include/boost/mpl/vector/aux_/iterator.hpp:
 
 /usr/local/include/boost/mpl/vector/aux_/O1_size.hpp:
 
@@ -2730,8 +2915,6 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 /usr/local/include/boost/numeric/conversion/converter.hpp:
 
 /usr/local/include/boost/numeric/conversion/detail/bounds.hpp:
-
-/usr/local/include/boost/numeric/conversion/detail/conversion_traits.hpp:
 
 /usr/lib/gcc/x86_64-redhat-linux/4.8.5/include/ia32intrin.h:
 
@@ -2770,8 +2953,6 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 /usr/local/include/boost/mpl/aux_/inserter_algorithm.hpp:
 
 /usr/local/include/boost/predef/architecture/blackfin.h:
-
-/usr/local/include/boost/predef/os/solaris.h:
 
 /usr/local/include/boost/range/config.hpp:
 
@@ -2845,6 +3026,10 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/local/include/boost/predef/compiler/palm.h:
 
+/usr/local/include/boost/predef/os/bsd/net.h:
+
+/usr/local/include/boost/predef/compiler/pgi.h:
+
 /usr/local/include/boost/range/rend.hpp:
 
 /usr/local/include/boost/predef/compiler/watcom.h:
@@ -2863,6 +3048,8 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/local/include/boost/predef/detail/test.h:
 
+/usr/include/c++/4.8.2/bits/indirect_array.h:
+
 /usr/local/include/boost/predef/hardware/simd/arm.h:
 
 /usr/local/include/boost/predef/hardware/simd/ppc.h:
@@ -2879,40 +3066,12 @@ CMakeFiles/duan.dir/duan_src/util.cc.o: /home/wang/Coroutine/duan_src/util.cc \
 
 /usr/local/include/boost/predef/library/c/gnu.h:
 
-/usr/local/include/boost/predef/os/beos.h:
-
 /usr/local/include/boost/predef/library/std/dinkumware.h:
-
-/usr/include/asm/errno.h:
 
 /usr/include/c++/4.8.2/list:
 
+/usr/include/asm/errno.h:
+
 /usr/local/include/boost/predef/library/std/libcomo.h:
 
-/usr/local/include/boost/predef/os/qnxnto.h:
-
 /usr/local/include/boost/predef/library/std/roguewave.h:
-
-/usr/local/include/boost/predef/os/amigaos.h:
-
-/usr/local/include/boost/predef/os/android.h:
-
-/usr/local/include/boost/predef/compiler/pgi.h:
-
-/usr/local/include/boost/predef/os/bsd/net.h:
-
-/usr/local/include/boost/predef/os/cygwin.h:
-
-/usr/local/include/boost/predef/os/ios.h:
-
-/usr/local/include/boost/mpl/aux_/yes_no.hpp:
-
-/usr/local/include/boost/predef/os/os400.h:
-
-/usr/local/include/boost/predef/os/hpux.h:
-
-/usr/local/include/boost/predef/os/unix.h:
-
-/usr/local/include/boost/mpl/push_front_fwd.hpp:
-
-/usr/local/include/boost/predef/os/vms.h:
