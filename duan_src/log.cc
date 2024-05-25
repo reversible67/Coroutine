@@ -88,7 +88,7 @@ class NameFormatItem : public LogFormatter::FormatItem{
 public:
     NameFormatItem(const std::string& str = "" ) {}
     void format(std::ostream& os, Logger::ptr logger, LogLevel::Level level, LogEvent::ptr event) override{
-        os << logger->getName();
+        os << event->getLogger()->getName();
     }
 };
 
@@ -212,8 +212,13 @@ void Logger::delAppender(LogAppender::ptr appender){
 void Logger::log(LogLevel::Level level, LogEvent::ptr event){
     if(m_level >= level){
         auto self = shared_from_this();     // 获得自己的智能指针
-        for(auto& i : m_appenders){
-            i->log(self, level, event);
+        if(!m_appenders.empty()){
+            for(auto& i : m_appenders){
+                i->log(self, level, event);
+            }
+        }
+        else if(m_root){
+            m_root->log(level, event);
         }
     }
 }
@@ -386,12 +391,24 @@ void LogFormatter::init(){
 
 LoggerManager::LoggerManager(){
     m_root.reset(new Logger);
-
     m_root->addAppender(LogAppender::ptr(new StdoutLogAppender));
+
+    init();
 }
 Logger::ptr LoggerManager::getLogger(const std::string& name){
     auto it = m_loggers.find(name);
-    return it == m_loggers.end() ? m_root : it->second;
+    if(it != m_loggers.end()){
+        return it->second;
+    }
+    
+    Logger::ptr logger(new Logger(name));
+    logger->m_root = m_root;
+    m_loggers[name] = logger;
+    return logger;
+}
+
+void LoggerManager::init(){
+    
 }
 
 } // end of namespace

@@ -59,7 +59,7 @@ void print_yaml(const YAML::Node& node, int level) {
 }
 
 void test_yaml(){
-    YAML::Node root  = YAML::LoadFile("../bin/conf/log.yml");
+    YAML::Node root  = YAML::LoadFile("../bin/conf/test.yml");
     // 解析
     print_yaml(root, 0);
 
@@ -97,7 +97,7 @@ void test_config(){
     XX_M(g_str_int_map_value_config, str_int_map, before);
     XX_M(g_str_int_umap_value_config, str_int_umap, before);
 
-    YAML::Node root  = YAML::LoadFile("../bin/conf/log.yml");
+    YAML::Node root  = YAML::LoadFile("../bin/conf/test.yml");
     duan::Config::LoadFromYaml(root);
 
     DUAN_LOG_INFO(DUAN_LOG_ROOT()) << "after: " << g_int_value_config->getValue();
@@ -126,6 +126,12 @@ public:
            << " sex=" << m_sex
            << "]";
         return ss.str();
+    }
+
+    bool operator== (const Person& oth) const {
+        return m_name == oth.m_name
+            && m_age == oth.m_age
+            && m_sex == oth.m_sex;
     }
 };
 
@@ -181,10 +187,15 @@ void test_class(){
         DUAN_LOG_INFO(DUAN_LOG_ROOT()) << prefix << " : size=" << m.size(); \
     }
 
+    g_person->addListener(10, [](const Person& old_value, const Person& new_value){
+        DUAN_LOG_INFO(DUAN_LOG_ROOT()) << "old_value=" << old_value.toString()
+                << "new_value=" << new_value.toString();
+    });
+
     XX_PM(g_person_map, "class.before");
     DUAN_LOG_INFO(DUAN_LOG_ROOT()) << "before: " << g_person_vec_map->toString();
 
-    YAML::Node root  = YAML::LoadFile("../bin/conf/log.yml");
+    YAML::Node root  = YAML::LoadFile("../bin/conf/test.yml");
     duan::Config::LoadFromYaml(root);
     DUAN_LOG_INFO(DUAN_LOG_ROOT()) << "after: " << g_person->getValue().toString() << " - " << g_person->toString();
     XX_PM(g_person_map, "class.after");

@@ -47,15 +47,19 @@ by 六七
 #define DUAN_LOG_FMT_FATAL(logger, fmt, ...) DUAN_LOG_FMT_LEVEL(logger, duan::LogLevel::FATAL, fmt, __VA_ARGS__)
 
 #define DUAN_LOG_ROOT() duan::LoggerMgr::GetInstance()->getRoot()
+#define DUAN_LOG_NAME(name) duan::LoggerMgr::GetInstance()->getLogger(name)
+
 
 namespace duan{
 
 class Logger;
+class LoggerManager;
 
 // 日志级别
 class LogLevel{
 public:
     enum Level{
+        UNKNOW = 0,
         DEBUG = 1,
         INFO = 2,
         WARN = 3,
@@ -157,6 +161,7 @@ protected:
 
 // 日志器
 class Logger : public std::enable_shared_from_this<Logger>{
+friend class LoggerManager;
 public:
     typedef std::shared_ptr<Logger> ptr;
     Logger(const std::string& name = "root");
@@ -179,6 +184,7 @@ private:
     LogLevel::Level m_level;                             // 日志级别
     std::list<LogAppender::ptr> m_appenders;             // Appender集合
     LogFormatter::ptr m_formatter;
+    Logger::ptr m_root;
 };
 
 // 定义输出到控制台Appender
