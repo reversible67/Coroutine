@@ -68,6 +68,7 @@ public:
     };
 
     static const char* toString(LogLevel::Level level);        // 将level转为对应的级别
+    static LogLevel::Level FromString(const std::string& str);
 };
 
 // 日志事件
@@ -136,9 +137,12 @@ public:
 
     void init();
 
+    bool isError() const { return m_error;}
+    const std::string getPattern() const { return m_pattern;}
 private:
     std::string m_pattern;                                   // 表示日志格式
     std::vector<FormatItem::ptr> m_items;                    // 表示输出多少个项
+    bool m_error = false;
 };
 
 // 日志输出地
@@ -148,6 +152,7 @@ public:
     virtual ~LogAppender() {};
 
     virtual void log(std::shared_ptr<Logger> logger, LogLevel::Level level, LogEvent::ptr event) = 0;   // 子类必须实现这个方法
+    virtual std::string toYamlString() = 0;
 
     void setFormatter(LogFormatter::ptr val) { m_formatter = val;}
     LogFormatter::ptr getFormatter() const { return m_formatter;}
@@ -175,10 +180,18 @@ public:
 
     void addAppender(LogAppender::ptr appender);
     void delAppender(LogAppender::ptr appender);
+    void clearAppenders();
     LogLevel::Level getLevel() const { return m_level;}
     void SetLevel(LogLevel::Level val) { m_level = val;}
 
     const std::string& getName() const { return m_name;}
+
+    void setFormatter(LogFormatter::ptr val);
+    void setFormatter(const std::string& val);
+
+    LogFormatter::ptr getFormatter();
+
+    std::string toYamlString();
 private:
     std::string m_name;                                  // 日志名称
     LogLevel::Level m_level;                             // 日志级别
@@ -192,6 +205,7 @@ class StdoutLogAppender : public LogAppender{
 public:
     typedef std::shared_ptr<StdoutLogAppender> ptr;
     void log(Logger::ptr logger, LogLevel::Level level, LogEvent::ptr event) override;      // override描述这个方法确实从父类继承过来，而且重载实现
+    std::string toYamlString() override;
 };
 
 // 定义输出到文件的Appender
@@ -203,6 +217,7 @@ public:
 
     // 重新打开文件, 文件打开成功返回true
     bool reopen();
+    std::string toYamlString() override;
 private:
     std::string m_filename;
     std::ofstream m_filestream;
@@ -216,6 +231,8 @@ public:
 
     void init();
     Logger::ptr getRoot() const { return m_root;}
+
+    std::string toYamlString();
 private:
     std::map<std::string, Logger::ptr> m_loggers;
     Logger::ptr m_root;

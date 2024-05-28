@@ -335,8 +335,8 @@ public:
     // typename告诉编译器 T是类型 而不是变量名
     static typename ConfigVar<T>::ptr Lookup(const std::string& name,
             const T& default_value, const std::string& description = ""){
-        auto it = s_datas.find(name);
-        if(it != s_datas.end()){
+        auto it = GetDatas().find(name);
+        if(it != GetDatas().end()){
             auto tmp = std::dynamic_pointer_cast<ConfigVar<T> >(it->second);
             if(tmp){
                 DUAN_LOG_INFO(DUAN_LOG_ROOT()) << "Lookup name=" << name << "exists";
@@ -357,15 +357,15 @@ public:
         }
 
         typename ConfigVar<T>::ptr v(new ConfigVar<T>(name, default_value, description));
-        s_datas[name] = v;
+        GetDatas() [name] = v;
         return v;
     }
 
     // 查找
     template<class T>
     static typename ConfigVar<T>::ptr Lookup(const std::string& name){
-        auto it = s_datas.find(name);
-        if(it == s_datas.end()){    // 未找到
+        auto it = GetDatas().find(name);
+        if(it == GetDatas().end()){    // 未找到
             return nullptr;
         }
         // 找到了  强制父转子类，只能用在shared_ptr下  dynamic_pointer_cast是转为智能指针
@@ -376,7 +376,11 @@ public:
 
     static ConfigVarBase::ptr LookupBase(const std::string& name);
 private:
-    static ConfigVarMap s_datas;
+    // static ConfigVarMap s_datas;     // 有初始化顺序的问题  有可能还没有初始化 其他地方就被使用了 会core错误
+    static ConfigVarMap& GetDatas(){
+        static ConfigVarMap s_datas;
+        return s_datas;
+    }
 };
 
 } // end of namespace

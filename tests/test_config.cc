@@ -6,6 +6,7 @@ by 六七
 #include "../duan_src/config.h"
 #include "../duan_src/log.h"
 #include <yaml-cpp/yaml.h>
+#include <iostream>
 
 // 把配置写死   约定
 /*
@@ -202,12 +203,21 @@ void test_class(){
     DUAN_LOG_INFO(DUAN_LOG_ROOT()) << "after: " << g_person_vec_map->toString();
 }
 
+void test_log(){
+    std::cout << duan::LoggerMgr::GetInstance()->toYamlString() << std::endl;
+    YAML::Node root = YAML::LoadFile("../bin/conf/log.yml");
+    duan::Config::LoadFromYaml(root);
+    std::cout << "=============" << std::endl;
+    std::cout << duan::LoggerMgr::GetInstance()->toYamlString() << std::endl;
+}
+
 int main(int argc, char** argv){
     // DUAN_LOG_INFO(DUAN_LOG_ROOT()) << g_int_value_config->getValue();
     // DUAN_LOG_INFO(DUAN_LOG_ROOT()) << g_int_value_config->toString();
 
     // test_yaml();
     // test_config();
-    test_class();
+    // test_class();
+    test_log();
     return 0;
 }
