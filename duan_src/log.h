@@ -147,6 +147,7 @@ private:
 
 // 日志输出地
 class LogAppender{
+friend class Logger;
 public:
     typedef std::shared_ptr<LogAppender> ptr;
     virtual ~LogAppender() {};
@@ -154,13 +155,14 @@ public:
     virtual void log(std::shared_ptr<Logger> logger, LogLevel::Level level, LogEvent::ptr event) = 0;   // 子类必须实现这个方法
     virtual std::string toYamlString() = 0;
 
-    void setFormatter(LogFormatter::ptr val) { m_formatter = val;}
+    void setFormatter(LogFormatter::ptr val);
     LogFormatter::ptr getFormatter() const { return m_formatter;}
 
     LogLevel::Level getLevel() const { return m_level;}
     void setLevel(LogLevel::Level val) { m_level = val;} 
 protected:
     LogLevel::Level m_level = LogLevel::DEBUG;
+    bool m_hasFormatter = false;
     LogFormatter::ptr m_formatter;                                            // 基类有可能会用到这个变量
 };
 
@@ -202,6 +204,7 @@ private:
 
 // 定义输出到控制台Appender
 class StdoutLogAppender : public LogAppender{
+friend class Logger;
 public:
     typedef std::shared_ptr<StdoutLogAppender> ptr;
     void log(Logger::ptr logger, LogLevel::Level level, LogEvent::ptr event) override;      // override描述这个方法确实从父类继承过来，而且重载实现
@@ -210,6 +213,7 @@ public:
 
 // 定义输出到文件的Appender
 class FileLogAppender : public LogAppender{
+friend class Logger;
 public:
     typedef std::shared_ptr<FileLogAppender> ptr;
     FileLogAppender(const std::string& filename);

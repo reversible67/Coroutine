@@ -32,15 +32,21 @@ const char* LogLevel::toString(LogLevel::Level level){
 }
 
 LogLevel::Level LogLevel::FromString(const std::string& str){
-#define XX(name) \
-    if(str == #name){ \
-        return LogLevel::name; \
+#define XX(level, v) \
+    if(str == #v){ \
+        return LogLevel::level; \
     }
-    XX(DEBUG);
-    XX(INFO);
-    XX(WARN);
-    XX(ERROR);
-    XX(FATAL);
+    XX(DEBUG, debug);
+    XX(INFO, info);
+    XX(WARN, warn);
+    XX(ERROR, error);
+    XX(FATAL, fatal);
+
+    XX(DEBUG, DEBUG);
+    XX(INFO, INFO);
+    XX(WARN, WARN);
+    XX(ERROR, ERROR);
+    XX(FATAL, FATAL)            ;
     return LogLevel::UNKNOW;
 #undef XX
 }
@@ -73,6 +79,17 @@ void LogEvent::format(const char* fmt, va_list al){
 
 std::stringstream& LogEventWrap::getSS(){
     return m_event->getSS();
+}
+
+// 是否有formatter
+void LogAppender::setFormatter(LogFormatter::ptr val){
+    m_formatter = val;
+    if(m_formatter){
+        m_hasFormatter = true;
+    }
+    else{
+        m_hasFormatter = false;
+    }
 }
 
 class MessageFormatItem : public LogFormatter::FormatItem{
@@ -214,6 +231,13 @@ Logger::Logger(const std::string& name)
 
 void Logger::setFormatter(LogFormatter::ptr val){
     m_formatter = val;
+
+    // 涉及到下游的appender
+    for(auto& i : m_appenders){
+        if(!i->m_hasFormatter){
+            i->m_formatter = m_formatter;
+        }
+    }
 }
 
 void Logger::setFormatter(const std::string& val){
@@ -225,7 +249,8 @@ void Logger::setFormatter(const std::string& val){
         return;
     }
     // m_formatter.reset(new duan::LogFormatter(val));          // 智能指针需要用reset方法
-    m_formatter = new_val;
+    // m_formatter = new_val;
+    setFormatter(new_val);
 }
 
 std::string Logger::toYamlString(){
@@ -250,7 +275,7 @@ LogFormatter::ptr Logger::getFormatter(){
 
 void Logger::addAppender(LogAppender::ptr appender){
     if(!appender->getFormatter()){
-        appender->setFormatter(m_formatter);
+        appender->m_formatter = m_formatter;
     }
     m_appenders.push_back(appender);
 }
@@ -317,8 +342,10 @@ std::string FileLogAppender::toYamlString(){
     YAML::Node node;
     node["type"] = "FileLogAppender";
     node["file"] = m_filename;
-    node["level"] = LogLevel::toString(m_level);
-    if(m_formatter){
+    if(m_level != LogLevel::UNKNOW){
+        node["level"] = LogLevel::toString(m_level);
+    }
+    if(m_hasFormatter && m_formatter){
         node["fomatter"] = m_formatter->getPattern();
     }
     std::stringstream ss;
@@ -343,6 +370,12 @@ void FileLogAppender::log(Logger::ptr logger, LogLevel::Level level, LogEvent::p
 std::string StdoutLogAppender::toYamlString(){
     YAML::Node node;
     node["type"] = "StdoutLogAppender";
+    if(m_level != LogLevel::UNKNOW){
+        node["level"] = LogLevel::toString(m_level);
+    }
+    if(m_hasFormatter && m_formatter){
+        node["formatter"] = m_formatter->getPattern();
+    }
     std::stringstream ss;
     ss << node;
     return ss.str();
@@ -649,6 +682,15 @@ struct LogIniter{
                         ap.reset(new StdoutLogAppender);
                     }
                     ap->setLevel(a.level);
+                    if(!a.formatter.empty()){
+                        LogFormatter::ptr fmt(new LogFormatter(a.formatter));
+                        if(!fmt->isError()){
+                            ap->setFormatter(fmt);
+                        }
+                        else{
+                            std::cout << "log.name=" << i.name << "appender type = " << a.type << "formatter = " << a.formatter << " is invalid" << std::endl;
+                        }
+                    }
                     logger->addAppender(ap);
                 }
             }

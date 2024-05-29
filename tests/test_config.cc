@@ -204,11 +204,19 @@ void test_class(){
 }
 
 void test_log(){
+    static duan::Logger::ptr system_log = DUAN_LOG_NAME("system");
+    DUAN_LOG_INFO(system_log) << "hello system" << std::endl;
     std::cout << duan::LoggerMgr::GetInstance()->toYamlString() << std::endl;
     YAML::Node root = YAML::LoadFile("../bin/conf/log.yml");
     duan::Config::LoadFromYaml(root);
     std::cout << "=============" << std::endl;
     std::cout << duan::LoggerMgr::GetInstance()->toYamlString() << std::endl;
+    std::cout << "=============" << std::endl;
+    std::cout << root << std::endl;
+    DUAN_LOG_INFO(system_log) << "hello system" << std::endl; 
+
+    system_log->setFormatter("%d - %m%n");
+    DUAN_LOG_INFO(system_log) << "hello system" << std::endl; 
 }
 
 int main(int argc, char** argv){
