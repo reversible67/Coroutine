@@ -14,19 +14,33 @@ set(LIB_SRC
     duan_src/log.cc
     duan_src/util.cc
     duan_src/config.cc
+    duan_src/thread.cc
     )
 
 add_library(duan SHARED ${LIB_SRC})
 #add_library(duan_static STATIC &{LIB_SRC})
 #SET_TARGET_PROPERTIES (duan_static PROPERTIES OUTPUT_NAME "duan")
 
+set(LIB_LIB
+    duan
+    pthread
+    ${YAMLCPP}
+    )
+
 add_executable(test_log tests/test_log.cc)
 add_dependencies(test_log duan)
-target_link_libraries(test_log duan -L/usr/local/lib64 -lyaml-cpp)
+#target_link_libraries(test_log duan -L/usr/local/lib64 -lyaml-cpp)
+target_link_libraries(test_log ${LIB_LIB} -L/usr/local/lib64 -lyaml-cpp)
 
 add_executable(test_config tests/test_config.cc)
 add_dependencies(test_config duan)
-target_link_libraries(test_config duan -L/usr/local/lib64 -lyaml-cpp) 
+#target_link_libraries(test_config duan -L/usr/local/lib64 -lyaml-cpp) 
+target_link_libraries(test_config duan ${LIB_LIB} -L/usr/local/lib64 -lyaml-cpp)
+
+add_executable(test_thread tests/test_thread.cc)
+add_dependencies(test_thread duan)
+#target_link_libraries(test_config duan -L/usr/local/lib64 -lyaml-cpp) 
+target_link_libraries(test_thread duan ${LIB_LIB} -L/usr/local/lib64 -lyaml-cpp)
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)

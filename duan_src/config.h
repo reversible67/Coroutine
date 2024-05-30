@@ -20,7 +20,7 @@ by 六七
 #include <unordered_map>
 #include <unordered_set>
 #include <list>
-#include <functional>
+#include <functional>              // 函数对象
 
 namespace duan{
 
