@@ -16,6 +16,31 @@ static thread_local std::string t_thread_name = "UNKNOW";
 
 static duan::Logger::ptr g_logger = DUAN_LOG_NAME("system");
 
+
+Semaphore::Semaphore(uint32_t count){
+    // sem_init第一个参数为指向信号量结构的指针 第二个参数不为0时 信号量在进程间共享  为0时只能为当前进程的所有线程共享   第三个参数是信号量的初始值
+    if(sem_init(&m_semaphore, 0, count)){
+        throw std::logic_error("sem_init error");
+    }
+}
+
+Semaphore::~Semaphore(){
+    sem_destroy(&m_semaphore);
+}
+
+void Semaphore::wait(){
+    if(sem_wait(&m_semaphore)){
+        throw std::logic_error("sem_wait error");
+    }
+}
+
+void Semaphore::notify(){
+    // 作用是给信号量的值加上一个“1”。 当有线程阻塞在这个信号量上时，调用这个函数会使其中一个线程不在阻塞
+    if(sem_post(&m_semaphore)){
+        throw std::logic_error("sem_post error");
+    }
+}
+
 // 获取当前线程的指针
 Thread* Thread::GetThis(){
     return t_thread;
@@ -49,6 +74,7 @@ Thread::Thread(std::function<void()> cb, const std::string& name)
         DUAN_LOG_ERROR(g_logger) << "pthread_create thread fail, rt = " << rt << " name = " << name;
         throw std::logic_error("pthread_create error");
     }
+    m_semaphore.wait();
 }
 
 Thread::~Thread(){
@@ -81,6 +107,7 @@ void* Thread::run(void* arg){
     std::function<void()> cb;
     cb.swap(thread->m_cb);
 
+    thread->m_semaphore.notify();
     // 至此 线程就启动了
     cb();
     return 0;
