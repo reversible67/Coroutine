@@ -1,6 +1,0 @@
-/home/wang/Coroutine/build/CMakeFiles/duan.dir
-/home/wang/Coroutine/build/CMakeFiles/test_log.dir
-/home/wang/Coroutine/build/CMakeFiles/test_config.dir
-/home/wang/Coroutine/build/CMakeFiles/test_thread.dir
-/home/wang/Coroutine/build/CMakeFiles/edit_cache.dir
-/home/wang/Coroutine/build/CMakeFiles/rebuild_cache.dir
