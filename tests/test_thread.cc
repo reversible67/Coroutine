@@ -8,7 +8,8 @@ by 六七
 duan::Logger::ptr g_logger = DUAN_LOG_ROOT();
 
 volatile int count = 0;                          // 加上volatile关键字  防止编译器做优化
-duan::RWMutex s_mutex;
+// duan::RWMutex s_mutex;
+duan::Mutex s_mutex;
 
 void fun1(){
     DUAN_LOG_INFO(g_logger) << "name: " << duan::Thread::GetName() 
@@ -18,7 +19,8 @@ void fun1(){
 
     for(int i = 0; i < 100000; ++i){
         // 对象是lock
-        duan::RWMutex::WriteLock lock(s_mutex);
+        // duan::RWMutex::WriteLock lock(s_mutex);
+        duan::Mutex::Lock lock(s_mutex);
         ++count;
     }
 }
