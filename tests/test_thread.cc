@@ -1,5 +1,5 @@
 /*
-实现日志模块
+线程模块测试
 2024/5/30 11:26
 by 六七
 */
@@ -25,20 +25,34 @@ void fun1(){
     }
 }
 
-void func2(){
+void fun2(){
+    while(true){
+        DUAN_LOG_INFO(g_logger) << "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+    }
+}
 
+void fun3(){
+    while(true){
+        DUAN_LOG_INFO(g_logger) << "==================================";
+    }
 }
 
 int main(int argc, char** argv){
     DUAN_LOG_INFO(g_logger) << "thread test begin";
+    YAML::Node root = YAML::LoadFile("../bin/conf/log2.yml");
+    duan::Config::LoadFromYaml(root);
+
+    
     std::vector<duan::Thread::ptr> thrs;
-    for(int i = 0; i < 5; ++i){
-        duan::Thread::ptr thr(new duan::Thread(fun1, "name_" + std::to_string(i)));
+    for(int i = 0; i < 2; ++i){
+        duan::Thread::ptr thr(new duan::Thread(&fun1, "name_" + std::to_string(i * 2)));
+        duan::Thread::ptr thr2(new duan::Thread(&fun2, "name_" + std::to_string(i * 2 + 1)));
         thrs.push_back(thr);
+        thrs.push_back(thr2);
     }
 
     // 等待线程的结束
-    for(int i = 0; i < 5; ++i){
+    for(size_t i = 0; i < thrs.size(); ++i){
         thrs[i]->join();
     }
     DUAN_LOG_INFO(g_logger) << "thread test begin";

@@ -1,5 +1,5 @@
 /*
-实现日志模块
+实现线程模块
 2024/5/29 15:30
 by 六七
 */
@@ -149,6 +149,16 @@ private:
     pthread_mutex_t m_mutex;    
 };
 
+// 空锁  用于测试
+class NullMutex{
+public:
+    typedef ScopedLockImpl<NullMutex> Lock;
+    NullMutex() {}
+    ~NullMutex() {}
+    void lock() {}
+    void unlock() {}
+};
+
 class RWMutex{
 public:
     typedef ReadScopedLockImpl<RWMutex> ReadLock;
@@ -177,6 +187,19 @@ public:
     }
 private:
     pthread_rwlock_t m_lock;
+};
+
+class NullRWMutex{
+public:
+    typedef ReadScopedLockImpl<NullMutex> ReadLock;
+    typedef WriteScopedLockImpl<NullMutex> WriteLock;
+
+    NullRWMutex() {}
+    ~NullRWMutex() {}
+
+    void rdlock() {}
+    void wrlock() {}
+    void unlock() {}
 };
 
 class Thread{
