@@ -57,5 +57,6 @@ int main(int argc, char** argv){
     }
     DUAN_LOG_INFO(g_logger) << "thread test begin";
     DUAN_LOG_INFO(g_logger) << "count = " << count;
+
     return 0;
 }

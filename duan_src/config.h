@@ -21,6 +21,7 @@ by 六七
 #include <unordered_set>
 #include <list>
 #include <functional>              // 函数对象
+#include "thread.h"
 
 namespace duan{
 
@@ -254,6 +255,7 @@ template<class T, class FromStr = LexicalCast<std::string, T>
                 , class ToStr = LexicalCast<T, std::string> >
 class ConfigVar : public ConfigVarBase{
 public:
+    typedef RWMutex RWMutexType;
     typedef std::shared_ptr<ConfigVar> ptr;
     typedef std::function<void (const T& old_value, const T& new_value)> on_change_cb;
 
@@ -269,6 +271,7 @@ public:
     std::string toString() override {
         try{
             // return boost::lexical_cast<std::string>(m_val);
+            RWMutexType::ReadLock lock(m_mutex);
             return ToStr()(m_val);
         }
         catch(std::exception& e){
@@ -291,37 +294,58 @@ public:
         return false;
     }
 
-    const T getValue() const{ return m_val;}
+    const T getValue(){ 
+        RWMutexType::ReadLock lock(m_mutex);
+        return m_val;
+    }
+
     // 要通知变化
     void setValue(const T& v) {
-        if(v == m_val){
-            return;
+        // 加{}的作用  就是形成一个局部作用域  出了这个作用域 锁就自己失效了！
+        // 性能方面考虑： 释放锁其实也会消耗时间  不如只用一个写锁
+        {
+            // 这一段用读锁
+            RWMutexType::ReadLock lock(m_mutex);
+            if(v == m_val){
+                return;
+            }
+            for(auto& i : m_cbs){
+                i.second(m_val, v);
+            }
         }
-        for(auto& i : m_cbs){
-            i.second(m_val, v);
-        }
+        // 这一段用写锁
+        RWMutexType::WriteLock lock(m_mutex);
         m_val = v;
     }
     std::string getTypeName() const override { return typeid(T).name();}
 
     // 因为要变更 所以要增加监听
-    void addListener(uint64_t key, on_change_cb cb){
-        m_cbs[key] = cb;
+    uint64_t addListener(on_change_cb cb){
+        // 可以添加的时候 每一个都有一个返回值 删除的时候 删掉这个返回值
+        static uint64_t s_fun_id = 0;
+        RWMutexType::WriteLock lock(m_mutex);
+        ++s_fun_id;
+        m_cbs[s_fun_id] = cb;
+        return s_fun_id;
     }
     // 删除
     void delListener(uint64_t key){
+        RWMutexType::WriteLock lock(m_mutex);
         m_cbs.erase(key);
     }
     // 返回
     on_change_cb getListener(uint64_t key){
+        RWMutexType::ReadLock lock(m_mutex);
         auto it = m_cbs.find(key);
         return it == m_cbs.end() ? nullptr : it->second;
     }
     // 清空
     void clearListener(){
+        RWMutexType::WriteLock lock(m_mutex);
         m_cbs.clear();
     }
 private:
+    RWMutexType m_mutex;      // 写操作比较多 所以这里使用读写锁
     T m_val;
     // 变更回调函数组， 为什么用map？ 因为变更后可以通过key进行删除   unit64_t key, 要求唯一， 一般可以用hash
     std::map<uint64_t, on_change_cb> m_cbs;
@@ -330,11 +354,13 @@ private:
 class Config{
 public:
     typedef std::unordered_map<std::string, ConfigVarBase::ptr> ConfigVarMap;
+    typedef RWMutex RWMutexType;    // 读多写少 就用读写锁
 
     template<class T>
     // typename告诉编译器 T是类型 而不是变量名
     static typename ConfigVar<T>::ptr Lookup(const std::string& name,
             const T& default_value, const std::string& description = ""){
+        RWMutexType::WriteLock lock(GetMutex());
         auto it = GetDatas().find(name);
         if(it != GetDatas().end()){
             auto tmp = std::dynamic_pointer_cast<ConfigVar<T> >(it->second);
@@ -364,6 +390,7 @@ public:
     // 查找
     template<class T>
     static typename ConfigVar<T>::ptr Lookup(const std::string& name){
+        RWMutexType::ReadLock lock(GetMutex());
         auto it = GetDatas().find(name);
         if(it == GetDatas().end()){    // 未找到
             return nullptr;
@@ -375,11 +402,20 @@ public:
     static void LoadFromYaml(const YAML::Node& root);
 
     static ConfigVarBase::ptr LookupBase(const std::string& name);
+
+    static void Visit(std::function<void(ConfigVarBase::ptr)> cb); 
 private:
     // static ConfigVarMap s_datas;     // 有初始化顺序的问题  有可能还没有初始化 其他地方就被使用了 会core错误
     static ConfigVarMap& GetDatas(){
         static ConfigVarMap s_datas;
         return s_datas;
+    }
+
+    // 读写锁也是需要静态方法返回的 因为我们这个类基本上都是创建一个全局变量
+    // 这个全局变量是一个配置 全局变量的初始化没有严格的顺序 如果不是这种方式的话 有可能会出现问题（内存错误）
+    static RWMutexType& GetMutex(){
+        static RWMutexType s_mutex;
+        return s_mutex;
     }
 };
 

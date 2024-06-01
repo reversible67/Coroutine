@@ -63,4 +63,13 @@ void Config::LoadFromYaml(const YAML::Node& root){
     }
 }
 
+// 自己提供方法 查看s_datas中的数据
+void Config::Visit(std::function<void(ConfigVarBase::ptr)> cb){
+    RWMutexType::ReadLock lock(GetMutex());
+    ConfigVarMap& m = GetDatas();
+    for(auto it = m.begin(); it != m.end(); ++it){
+        cb(it->second);
+    }
+}
+
 } // end of namespace 

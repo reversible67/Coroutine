@@ -12,6 +12,7 @@ by 六七
 #include <pthread.h>
 #include <semaphore.h>
 #include <stdint.h>
+#include <atomic>    // CAS锁
 
 
 // C++11之前都是用pthread_xx库
@@ -87,7 +88,7 @@ public:
 
     void unlock(){
         if(m_locked){
-            m_mutex.rdunlock();
+            m_mutex.unlock();
             m_locked = false;
         }
     }
@@ -200,6 +201,53 @@ public:
     void rdlock() {}
     void wrlock() {}
     void unlock() {}
+};
+
+// 自旋锁
+// 线程无法获取锁的时候 首先会等待  然后间隔一段时间后再次尝试获取
+class Spinlock{
+public:
+    typedef ScopedLockImpl<Spinlock> Lock;
+    Spinlock(){
+        // 初始化自旋锁
+        pthread_spin_init(&m_mutex, 0);   
+    }
+
+    ~Spinlock(){
+        pthread_spin_destroy(&m_mutex);
+    }
+    
+    void lock(){
+        pthread_spin_lock(&m_mutex);
+    }
+
+    void unlock(){
+        pthread_spin_unlock(&m_mutex);
+    }
+private:
+    pthread_spinlock_t m_mutex;
+};
+
+class CASLock{
+public:
+    typedef ScopedLockImpl<CASLock> Lock;
+    CASLock(){
+        m_mutex.clear();
+    }
+
+    ~CASLock(){
+
+    }
+
+    void lock(){
+        while(std::atomic_flag_test_and_set_explicit(&m_mutex, std::memory_order_acquire));
+    }
+
+    void unlock(){
+        std::atomic_flag_clear_explicit(&m_mutex, std::memory_order_release);
+    }
+private:
+    volatile std::atomic_flag m_mutex;
 };
 
 class Thread{

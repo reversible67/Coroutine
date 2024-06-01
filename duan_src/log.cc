@@ -355,6 +355,7 @@ void StdoutLogAppender::log(Logger::ptr logger, LogLevel::Level level, LogEvent:
 }
 
 std::string FileLogAppender::toYamlString(){
+    MutexType::Lock lock(m_mutex);
     YAML::Node node;
     node["type"] = "FileLogAppender";
     node["file"] = m_filename;
@@ -381,7 +382,15 @@ bool FileLogAppender::reopen(){
 
 void FileLogAppender::log(Logger::ptr logger, LogLevel::Level level, LogEvent::ptr event){
     if(level >= m_level){
-        m_filestream << m_formatter->format(logger, level, event);
+        uint64_t now = time(0);
+        if(now != m_lastTime){
+            reopen();
+            m_lastTime = now;
+        }
+        MutexType::Lock lock(m_mutex);
+        if(!(m_filestream << m_formatter->format(logger, level, event))){
+            std::cout << "error" << std::endl;
+        }
     }
 }
 
@@ -672,7 +681,7 @@ duan::ConfigVar<std::set<LogDefine> >::ptr g_log_defines = duan::Config::Lookup(
 
 struct LogIniter{
     LogIniter(){
-        g_log_defines->addListener(0xF1E231, [](const std::set<LogDefine>& old_value, const std::set<LogDefine>& new_value){
+        g_log_defines->addListener([](const std::set<LogDefine>& old_value, const std::set<LogDefine>& new_value){
             DUAN_LOG_INFO(DUAN_LOG_ROOT()) << "on_logger_conf_changed";
             for(auto& i : new_value){
                 auto it = old_value.find(i);

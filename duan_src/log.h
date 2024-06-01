@@ -231,6 +231,7 @@ public:
 private:
     std::string m_filename;
     std::ofstream m_filestream;
+    uint64_t m_lastTime = 0;
 };
 
 // 负责管理所有的logger  默认是m_root

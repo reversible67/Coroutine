@@ -188,7 +188,7 @@ void test_class(){
         DUAN_LOG_INFO(DUAN_LOG_ROOT()) << prefix << " : size=" << m.size(); \
     }
 
-    g_person->addListener(10, [](const Person& old_value, const Person& new_value){
+    g_person->addListener([](const Person& old_value, const Person& new_value){
         DUAN_LOG_INFO(DUAN_LOG_ROOT()) << "old_value=" << old_value.toString()
                 << "new_value=" << new_value.toString();
     });
@@ -227,5 +227,13 @@ int main(int argc, char** argv){
     // test_config();
     // test_class();
     test_log();
+
+    duan::Config::Visit([](duan::ConfigVarBase::ptr var) {
+        DUAN_LOG_INFO(DUAN_LOG_ROOT()) << "name=" << var->getName() 
+                    << " description=" << var->getDescription() 
+                    << " typename=" << var->getTypeName()
+                    << " value=" << var->toString();
+    });
+
     return 0;
 }
