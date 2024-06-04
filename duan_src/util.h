@@ -1,5 +1,5 @@
 /*
-实现日志模块
+实现工具类模块
 2024/5/16 16:47
 by 六七
 */
@@ -12,12 +12,18 @@ by 六七
 #include <stdio.h>
 #include <unistd.h>
 #include <stdint.h>
+#include <vector>
+#include <string>
 
 namespace duan{
 
 pid_t GetThreadId();
 
 uint32_t GetFiberId();
+
+// 打印栈信息
+void Backtrace(std::vector<std::string>& bt, int size, int skip = 1);
+std::string BacktraceToString(int size, int skip = 2, const std::string& prefix = "");
 
 } // end of namespace duan
 

@@ -15,6 +15,7 @@ set(LIB_SRC
     duan_src/util.cc
     duan_src/config.cc
     duan_src/thread.cc
+    duan_src/fiber.cc
     )
 
 add_library(duan SHARED ${LIB_SRC})
@@ -41,6 +42,16 @@ add_executable(test_thread tests/test_thread.cc)
 add_dependencies(test_thread duan)
 #target_link_libraries(test_config duan -L/usr/local/lib64 -lyaml-cpp) 
 target_link_libraries(test_thread duan ${LIB_LIB} -L/usr/local/lib64 -lyaml-cpp)
+
+add_executable(test_util tests/test_util.cc)
+add_dependencies(test_util duan)
+#target_link_libraries(test_config duan -L/usr/local/lib64 -lyaml-cpp) 
+target_link_libraries(test_util duan ${LIB_LIB} -L/usr/local/lib64 -lyaml-cpp)
+
+add_executable(test_fiber tests/test_fiber.cc)
+add_dependencies(test_fiber duan)
+#target_link_libraries(test_config duan -L/usr/local/lib64 -lyaml-cpp) 
+target_link_libraries(test_fiber duan ${LIB_LIB} -L/usr/local/lib64 -lyaml-cpp)
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)

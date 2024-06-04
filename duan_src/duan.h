@@ -6,5 +6,7 @@
 #include "duan_src/singleton.h"
 #include "duan_src/util.h"
 #include "duan_src/thread.h"
+#include "duan_src/macro.h"
+#include "duan_src/fiber.h"
 
 #endif

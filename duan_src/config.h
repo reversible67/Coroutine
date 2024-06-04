@@ -376,7 +376,7 @@ public:
             }
         }
 
-        if(name.find_first_not_of("abcdedghigklmnopqrstuvwxyz._012345678")
+        if(name.find_first_not_of("abcdefghigklmnopqrstuvwxyz._012345678")
                 != std::string::npos){
             DUAN_LOG_ERROR(DUAN_LOG_ROOT()) << "Lookup name invalid " << name;    // 用日志记录错误
             throw std::invalid_argument(name);                                    // 抛出异常  名字有问题
