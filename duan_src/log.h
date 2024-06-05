@@ -27,7 +27,7 @@ by 六七
     if(logger->getLevel() <= level) \
         duan::LogEventWrap(duan::LogEvent::ptr(new duan::LogEvent(logger, level, \
                 __FILE__, __LINE__, 0, duan::GetThreadId(),\
-                 duan::GetFiberId(), time(0)))).getSS()
+                 duan::GetFiberId(), time(0), duan::Thread::GetName()))).getSS()
     
 #define DUAN_LOG_DEBUG(logger) DUAN_LOG_LEVEL(logger, duan::LogLevel::DEBUG)
 #define DUAN_LOG_INFO(logger) DUAN_LOG_LEVEL(logger, duan::LogLevel::INFO)
@@ -39,7 +39,7 @@ by 六七
     if(logger->getLevel() <= level) \
         duan::LogEventWrap(duan::LogEvent::ptr(new duan::LogEvent(logger, level, \
                         __FILE__, __LINE__, 0, duan::GetThreadId(), \
-                duan::GetFiberId(), time(0)))).getEvent()->format(fmt, __VA_ARGS__)
+                duan::GetFiberId(), time(0), duan::Thread::GetName()))).getEvent()->format(fmt, __VA_ARGS__)
 
 #define DUAN_LOG_FMT_DEBUG(logger, fmt, ...) DUAN_LOG_FMT_LEVEL(logger, duan::LogLevel::DEBUG, fmt, __VA_ARGS__)
 #define DUAN_LOG_FMT_INFO(logger, fmt, ...) DUAN_LOG_FMT_LEVEL(logger, duan::LogLevel::INFO, fmt, __VA_ARGS__)
@@ -79,7 +79,8 @@ public:
     typedef std::shared_ptr<LogEvent> ptr;
     LogEvent(std::shared_ptr<Logger> logger, LogLevel::Level level
             , const char* file, int32_t line, uint32_t elapse
-            , uint32_t thread_id, uint32_t fiber_id, uint64_t time);
+            , uint32_t thread_id, uint32_t fiber_id, uint64_t time
+            , const std::string& thread_name);
 
     const char* getFile() const { return m_file;}               // 获取文件名
     int32_t getLine() const { return m_line;}                   // 获取行号
@@ -88,6 +89,7 @@ public:
     uint32_t getFiberId() const { return m_fiberId;}            // 获取协程id
     uint64_t getTime() const {return m_time;}                   // 获取时间
     std::string getContent() const { return m_ss.str();}        // 获取消息内容
+    const std::string& getThreadName() const { return m_threadName;}   // 获取线程名称
     std::shared_ptr<Logger> getLogger() const { return m_logger;}
     LogLevel::Level getLevel() const { return m_level;}
     std::stringstream& getSS() { return m_ss;}
@@ -101,8 +103,9 @@ private:
     uint32_t m_threadId = 0;        // 线程ID
     uint32_t m_fiberId = 0;         // 协程ID
     uint64_t m_time;                // 时间戳
+    std::string m_threadName;       // 用来表示线程名称
     std::stringstream m_ss;         // 用来表示消息内容
-
+    
     std::shared_ptr<Logger> m_logger;
     LogLevel::Level m_level;
 };

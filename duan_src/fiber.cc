@@ -73,7 +73,7 @@ Fiber::Fiber(std::function<void()> cb, size_t stacksize)
 
     makecontext(&m_ctx, &Fiber::MainFunc, 0);
 
-    // DUAN_LOG_DEBUG(g_logger) << "Fiber::Fiber id = " << m_id;
+    DUAN_LOG_DEBUG(g_logger) << "Fiber::Fiber id = " << m_id;
 }
 
 Fiber::~Fiber(){
@@ -92,7 +92,7 @@ Fiber::~Fiber(){
             SetThis(nullptr);
         }
     }
-    // DUAN_LOG_DEBUG(g_logger) << "Fiber::Fiber id = " << m_id;
+    DUAN_LOG_DEBUG(g_logger) << "Fiber::~Fiber id = " << m_id;
 }
 
 void Fiber::reset(std::function<void()> cb){
@@ -184,6 +184,15 @@ void Fiber::MainFunc(){
         cur->m_state = EXCEPT;
         DUAN_LOG_ERROR(g_logger) << "Fiber Except: ";
     }
+
+
+    auto raw_ptr = cur.get();    // 裸指针拿出来
+    // p.reset(q)会令智能指针p中存放指针q，即p指向q的空间，而且会释放原来的空间
+    cur.reset();                // 指针指针数量-1
+    raw_ptr->swapOut();
+
+    // 永远无法抵达的真实  如果输出了 就有错
+    DUAN_ASSERT2(false, "never reach");
 }
 
 } // end of duan
