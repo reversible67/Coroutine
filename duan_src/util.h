@@ -22,8 +22,8 @@ pid_t GetThreadId();
 uint32_t GetFiberId();
 
 // 打印栈信息
-void Backtrace(std::vector<std::string>& bt, int size, int skip = 1);
-std::string BacktraceToString(int size, int skip = 2, const std::string& prefix = "");
+void Backtrace(std::vector<std::string>& bt, int size = 64, int skip = 1);
+std::string BacktraceToString(int size = 64, int skip = 2, const std::string& prefix = "");
 
 } // end of namespace duan
 

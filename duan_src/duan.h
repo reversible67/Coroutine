@@ -8,5 +8,6 @@
 #include "duan_src/thread.h"
 #include "duan_src/macro.h"
 #include "duan_src/fiber.h"
+#include "duan_src/scheduler.h"
 
 #endif

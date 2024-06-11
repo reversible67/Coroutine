@@ -8,6 +8,7 @@ by 六七
 #include "macro.h"
 #include <atomic>
 #include "log.h"
+#include "scheduler.h"
 
 namespace duan{
 
@@ -57,7 +58,7 @@ Fiber::Fiber(){
 }
 
 // 这里是真正创建一个协程
-Fiber::Fiber(std::function<void()> cb, size_t stacksize)
+Fiber::Fiber(std::function<void()> cb, size_t stacksize, bool use_caller)
     : m_id(++s_fiber_id)
     , m_cb(cb){
     ++s_fiber_count;
@@ -71,6 +72,12 @@ Fiber::Fiber(std::function<void()> cb, size_t stacksize)
     m_ctx.uc_stack.ss_sp = m_stack;
     m_ctx.uc_stack.ss_size = m_stacksize;
 
+    if(use_caller){
+        makecontext(&m_ctx, &Fiber::MainFunc, 0);
+    }
+    else{
+       makecontext(&m_ctx, &Fiber::CallerMainFunc, 0); 
+    }
     makecontext(&m_ctx, &Fiber::MainFunc, 0);
 
     DUAN_LOG_DEBUG(g_logger) << "Fiber::Fiber id = " << m_id;
@@ -112,6 +119,20 @@ void Fiber::reset(std::function<void()> cb){
     makecontext(&m_ctx, &Fiber::MainFunc, 0);
     m_state = INIT; // 状态回到INIT
 }
+
+void Fiber::call(){
+    SetThis(this);
+    m_state = EXEC;
+    DUAN_LOG_ERROR(g_logger) << getId();
+    // DUAN_ASSERT(GetThis() == t_threadFiber);
+    if(swapcontext(&t_threadFiber->m_ctx, &m_ctx)){
+        DUAN_ASSERT2(false, "swapcontext");
+    }
+}
+
+void Fiber::back(){
+
+}
    
 // 切换到当前协程执行
 void Fiber::swapIn(){
@@ -119,19 +140,33 @@ void Fiber::swapIn(){
     DUAN_ASSERT(m_state != EXEC);
     m_state = EXEC;
 
-    if(swapcontext(&t_threadFiber->m_ctx, &m_ctx)){
+    if(swapcontext(&Scheduler::GetMainFiber()->m_ctx, &m_ctx)){
         DUAN_ASSERT2(false, "swapcontext");
     }
 }
 
 // 切换到后台执行
 void Fiber::swapOut(){
-    SetThis(t_threadFiber.get());
-
-    if(swapcontext(&m_ctx, &t_threadFiber->m_ctx)){
-        DUAN_ASSERT2(false, "swapcontext");
+    if(this != Scheduler::GetMainFiber()){
+        SetThis(Scheduler::GetMainFiber());
+        if(swapcontext(&m_ctx, &Scheduler::GetMainFiber()->m_ctx)){
+            DUAN_ASSERT2(false, "swapcontext");
+        }
+    }
+    else{
+        SetThis(t_threadFiber.get());
+        if(swapcontext(&m_ctx, &t_threadFiber->m_ctx)){
+            DUAN_ASSERT2(false, "swapcontext");
+        }
     }
 }
+
+// void Fiber::swapOut(){
+//     SetThis(Scheduler::GetMainFiber());
+//     if(swapcontext(&m_ctx, &Scheduler::GetMainFiber()->m_ctx)){
+//         DUAN_ASSERT2(false, "swapcontext");
+//     }
+// }
 
 // 设置当前协程
 void Fiber::SetThis(Fiber* f){
@@ -178,11 +213,17 @@ void Fiber::MainFunc(){
     }
     catch(std::exception& ex){
         cur->m_state = EXCEPT;
-        DUAN_LOG_ERROR(g_logger) << "Fiber Except: " << ex.what();
+        DUAN_LOG_ERROR(g_logger) << "Fiber Except: " << ex.what()
+                                 << "fiber_id = " << cur->getId() 
+                                 << std::endl
+                                 << duan::BacktraceToString();
     }
     catch(...){
         cur->m_state = EXCEPT;
-        DUAN_LOG_ERROR(g_logger) << "Fiber Except: ";
+        DUAN_LOG_ERROR(g_logger) << "Fiber Except: "
+                                 << "fiber_id = " << cur->getId()
+                                 << std::endl
+                                 << duan::BacktraceToString();
     }
 
 
@@ -192,7 +233,39 @@ void Fiber::MainFunc(){
     raw_ptr->swapOut();
 
     // 永远无法抵达的真实  如果输出了 就有错
-    DUAN_ASSERT2(false, "never reach");
+    DUAN_ASSERT2(false, "never reach fiber_id = " + std::to_string(raw_ptr->getId()));
+}
+
+void Fiber::CallerMainFunc(){
+    Fiber::ptr cur = GetThis();
+    DUAN_ASSERT(cur);
+    try{
+        cur->m_cb();
+        cur->m_cb = nullptr;
+        cur->m_state = TERM;
+    }
+    catch(std::exception& ex){
+        cur->m_state = EXCEPT;
+        DUAN_LOG_ERROR(g_logger) << "Fiber Except: " << ex.what()
+                                 << "fiber_id = " << cur->getId() 
+                                 << std::endl
+                                 << duan::BacktraceToString();
+    }
+    catch(...){
+        cur->m_state = EXCEPT;
+        DUAN_LOG_ERROR(g_logger) << "Fiber Except: "
+                                 << "fiber_id = " << cur->getId()
+                                 << std::endl
+                                 << duan::BacktraceToString();
+    }
+
+
+    auto raw_ptr = cur.get();    // 裸指针拿出来
+    // p.reset(q)会令智能指针p中存放指针q，即p指向q的空间，而且会释放原来的空间
+    cur.reset();                // 指针指针数量-1
+    raw_ptr->back();
+    // 永远无法抵达的真实  如果输出了 就有错
+    DUAN_ASSERT2(false, "never reach fiber_id = " + std::to_string(raw_ptr->getId()));
 }
 
 } // end of duan
