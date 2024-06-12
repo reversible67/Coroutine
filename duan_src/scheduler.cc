@@ -61,18 +61,18 @@ void Scheduler::start(){
     m_stopping = false;                 // 已关闭
     DUAN_ASSERT(m_threads.empty());
 
-    m_threads.resize(m_threadCount);
+    m_threads.resize(m_threadCount);    // 重置线程池的大小
     for(size_t i = 0; i < m_threadCount; ++i){
         m_threads[i].reset(new Thread(std::bind(&Scheduler::run, this), m_name + "_" + std::to_string(i)));     // 从哪个线程池来的
         m_threadIds.push_back(m_threads[i]->getId());
     }
     lock.unlock();
 
-    if(m_rootFiber){
-        // m_rootFiber->swapIn();
-        m_rootFiber->call();
-        DUAN_LOG_INFO(g_logger) << "call out" <<  m_rootFiber->getState();
-    }
+    // if(m_rootFiber){
+    //     // m_rootFiber->swapIn();
+    //     m_rootFiber->call();
+    //     DUAN_LOG_INFO(g_logger) << "call out" <<  m_rootFiber->getState();
+    // }
 }
 
 /*
@@ -104,9 +104,35 @@ void Scheduler::stop(){
         tickle();
     }
 
-    if(stopping()){
-        return;
+    // 避免有的任务没有做完
+    if(m_rootFiber){
+        // while(!stopping()){
+        //     // 当主协程结束的时候
+        //     if(m_rootFiber->getState() == Fiber::TERM || m_rootFiber->getState() == Fiber::EXCEPT){
+        //         m_rootFiber.reset(new Fiber(std::bind(&Scheduler::run, this), 0, true));
+        //         DUAN_LOG_INFO(g_logger) << "root fiber is term, reset";
+        //         t_fiber = m_rootFiber.get();
+        //     }
+        //     m_rootFiber->call();                                        // 再次执行  回收没有执行完的任务
+        // }
+        if(!stopping()){
+            m_rootFiber->call();
+        }
     }
+
+    std::vector<Thread::ptr> thrs;
+    {
+        MutexType::Lock lock(m_mutex);
+        thrs.swap(m_threads);
+    }
+
+    for(auto& i : thrs){
+        i->join();        // 释放线程
+    }
+
+    // if(stopping()){
+    //     return;
+    // }
 
     // if(exit_on_this_fiber){
     // }
@@ -135,6 +161,7 @@ void Scheduler::run(){
     while(true){   
         ft.reset();
         bool tickle_me = false;
+        bool is_active = false;
         {
             // 去协程的消息队列 取一个协程/函数(任务)(消息)
             MutexType::Lock lock(m_mutex);
@@ -157,8 +184,10 @@ void Scheduler::run(){
                 }
                 // 然后需要处理
                 ft = *it;
-                tickle_me = true;
+                // tickle_me = true;
                 m_fibers.erase(it);
+                ++m_activeThreadCount;
+                is_active = true;
                 break;
             }
         }
@@ -187,7 +216,6 @@ void Scheduler::run(){
                 cb_fiber.reset(new Fiber(ft.cb));
             }
             ft.reset();
-            ++m_activeThreadCount;
             cb_fiber->swapIn();
             --m_activeThreadCount;
             if(cb_fiber->getState() == Fiber::READY){
@@ -203,6 +231,10 @@ void Scheduler::run(){
             }
         }
         else{
+            if(is_active){
+                --m_activeThreadCount;
+                continue;
+            }
             // 没有任务可以做了
             if(idle_fiber->getState() == Fiber::TERM){
                 DUAN_LOG_INFO(g_logger) << "idle fiber term";
@@ -232,6 +264,9 @@ bool Scheduler::stopping(){
 
 void Scheduler::idle(){
     DUAN_LOG_INFO(g_logger) << "idle";
+    while(!stopping()){
+        duan::Fiber::YieldToHold();             // 让出执行权
+    }
 }
 
 } // end of namespace

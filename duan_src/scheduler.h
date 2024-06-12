@@ -33,7 +33,7 @@ public:
     // 返回协程调度器名称
     const std::string& getName() const { return m_name;}
 
-    static Scheduler* GetThis();                    // 返回当前协程调度器
+    static Scheduler* GetThis();                    // 返回当前 协程调度器
     static Fiber* GetMainFiber();                   // 返回当前协程调度器的调度协程
 
     void start();                                   // 启动协程调度器
