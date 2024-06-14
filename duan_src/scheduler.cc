@@ -238,6 +238,7 @@ void Scheduler::run(){
             // 没有任务可以做了
             if(idle_fiber->getState() == Fiber::TERM){
                 DUAN_LOG_INFO(g_logger) << "idle fiber term";
+                tickle();
                 break;
             }
 
