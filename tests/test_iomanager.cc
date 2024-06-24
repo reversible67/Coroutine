@@ -58,7 +58,22 @@ void test1(){
     iom.scheduler(&test_fiber);
 }
 
+// 测试timer
+duan::Timer::ptr s_timer;
+void test_timer(){
+    duan::IOManager iom(2);
+    s_timer = iom.addTimer(1000, [](){
+        static int i = 0;
+        DUAN_LOG_INFO(g_logger) << "hello timer i = " << i;
+        if(++i == 3){
+            s_timer->reset(2000, true);
+            // s_timer->cancel();
+        }
+    }, true);
+}
+
 int main(int argc, char** argv){
-    test1();
+    // test1();
+    test_timer();
     return 0;
 }

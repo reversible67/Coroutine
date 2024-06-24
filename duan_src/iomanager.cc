@@ -275,8 +275,17 @@ void IOManager::tickle(){
     return;
 }
 
+bool IOManager::stopping(uint64_t& timeout){
+    timeout = getNextTimer();
+    return timeout == ~0ull && m_pendingEventCount == 0 && Scheduler::stopping();
+}
+
 bool IOManager::stopping(){
-    return Scheduler::stopping() && m_pendingEventCount == 0;
+    // 并且没有定时器要执行
+    // return m_pendingEventCount && !hasTimer() && Scheduler::stopping();
+    uint64_t timeout = 0;
+    return stopping(timeout);
+    // return Scheduler::stopping() && m_pendingEventCount == 0;
 }
 
 // 当线程什么事都不干的时候 就会陷入idle
@@ -288,20 +297,28 @@ void IOManager::idle(){
 
     int rt = 0;
     while(true){
-        if(stopping()){
+        uint64_t next_timeout = 0;
+        if(stopping(next_timeout)){
             DUAN_LOG_INFO(g_logger) << "name = " << getName() << " idle stopping exit";
             break;
         }
 
         do{
-            static const int MAX_TIMEOUT = 5000;                // 5s
+            static const int MAX_TIMEOUT = 3000;                // 1s
             /*
             epoll_wait（）系统调用等待文件描述符epfd引用的epoll实例上的事件
             epoll_wait（）最多返回最大事件。 maxevents参数必须大于零。 timeout参数指定epoll_wait（）将阻止的最小毫秒数
             返回值：成功时，epoll_wait（）返回为请求的I / O准备就绪的文件描述符的数目；如果在请求的超时毫秒内没有文件描述符准备就绪，则返回零。
             发生错误时，epoll_wait（）返回-1并正确设置errno。
             */
-            rt = epoll_wait(m_epfd, events, 64, MAX_TIMEOUT);
+            if(next_timeout != ~0ull){
+                // 有超时时间
+                next_timeout = (int)next_timeout > MAX_TIMEOUT ? MAX_TIMEOUT : next_timeout;
+            }
+            else{
+                next_timeout = MAX_TIMEOUT;
+            }
+            rt = epoll_wait(m_epfd, events, 64, (int)next_timeout);
 
             // 中断了
             if(rt < 0 && errno == EINTR){
@@ -312,6 +329,19 @@ void IOManager::idle(){
             }
         }
         while(true);
+
+        std::vector<std::function<void()> > cbs;
+        // 返回现在这个时间点 满足条件的回调
+        listExpiredCb(cbs);
+        if(!cbs.empty()){
+            // DUAN_LOG_DEBUG(g_logger) << "on timer cbs.size= " << cbs.size();
+            // 定时器就可以执行了
+            scheduler(cbs.begin(), cbs.end());
+            // for(auto& i : cbs){
+            //     scheduler(i);
+            // }
+            cbs.clear();
+        }
 
         for(int i = 0; i < rt; ++i){
             epoll_event& event = events[i];
@@ -372,6 +402,10 @@ void IOManager::idle(){
 
         raw_ptr->swapOut();    
     }
+}
+
+void IOManager::onTimerInsertedAtFront(){
+    tickle();
 }
 
 } // end of namespace

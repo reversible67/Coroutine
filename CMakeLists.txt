@@ -17,6 +17,7 @@ set(LIB_SRC
     duan_src/thread.cc
     duan_src/fiber.cc
     duan_src/scheduler.cc
+    duan_src/timer.cc
     duan_src/iomanager.cc
     )
 

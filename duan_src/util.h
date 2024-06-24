@@ -14,6 +14,7 @@ by 六七
 #include <stdint.h>
 #include <vector>
 #include <string>
+#include <sys/time.h>
 
 namespace duan{
 
@@ -24,6 +25,10 @@ uint32_t GetFiberId();
 // 打印栈信息
 void Backtrace(std::vector<std::string>& bt, int size = 64, int skip = 1);
 std::string BacktraceToString(int size = 64, int skip = 2, const std::string& prefix = "");
+
+uint64_t GetCurrentMS();
+uint64_t GetCurrentUS();
+
 
 } // end of namespace duan
 
