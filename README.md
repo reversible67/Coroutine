@@ -217,7 +217,7 @@ Timer -> addTimer --> cancel()
 ```
 
 ## 2024/6/24 接下来写hook功能  hook还未实现
-
+hook已实现
 
 
 ## socket函数库
@@ -229,7 +229,8 @@ Timer -> addTimer --> cancel()
 
 
 ## 分布式协议库
-
+分布式 写了一个KVstorageBaseRaft
+https://github.com/reversible67/KVstorageBaseRaft-cpp
 
 
 ## 推荐系统
